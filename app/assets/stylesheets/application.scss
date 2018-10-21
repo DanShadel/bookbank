@@ -1,16 +1,84 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
  *= require_tree .
  *= require_self
  */
 @import "bootstrap";
+
+
+.textbook-listing-box ul {
+	list-style-type: none;
+	position: relative;
+	bottom: 0;
+}
+
+.textbook-listing-box {
+	height: 400px;
+	position: relative;
+	background: #3F51B5;
+
+}
+
+.index-background {
+	min-height: 1000px;
+	background: #C4CAE9;
+
+
+}
+
+
+.textbook-box-col {
+	padding-top: 15px;
+	padding-bottom: 15px;
+
+}
+
+.search-bar {
+	padding-top: 15px;
+	padding-bottom: 15px;	
+	float: right;
+}
+
+.textbooks-heading {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	
+}
+
+.navbar-background {
+	background-color: #303F9F;
+	positition: fixed;
+
+}
+
+.textbook-navbar {
+	list-style-type: none;
+
+}
+
+
+h1 {
+  font-family: 'Abril Fatface', serif;
+  font-color: #303F9F;
+  font-weight: bold;
+  font-size: 26px;
+  line-height: 30px;
+
+}
+
+h2 {
+  font-family: 'Abril Fatface', serif;
+  font-color: #303F9F;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 20px;
+
+}
+
+h3 {
+  font-family: 'Abril Fatface', serif;
+  font-color: #303F9F;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 18px;
+
+}

@@ -1,37 +1,39 @@
-<%= form_with(model: textbook, local: true) do |form| %>
-  <% if textbook.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(textbook.errors.count, "error") %> prohibited this textbook from being saved:</h2>
+<div class="container">
+  <%= form_with(model: textbook, local: true) do |form| %>
+    <% if textbook.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(textbook.errors.count, "error") %> prohibited this textbook from being saved:</h2>
 
-      <ul>
-      <% textbook.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% textbook.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :title %>
+      <%= form.text_field :title, id: :textbook_title %>
+    </div>
+
+    <div class="field">
+      <%= form.label :condition %>
+      <%= form.text_field :condition, id: :textbook_condition %>
+    </div>
+
+    <div class="field">
+      <%= form.label :isbn %>
+      <%= form.text_field :isbn, id: :textbook_isbn %>
+    </div>
+
+    <div class="field">
+      <%= form.label :email %>
+      <%= form.text_field :email, id: :textbook_email %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :textbook_title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :condition %>
-    <%= form.text_field :condition, id: :textbook_condition %>
-  </div>
-
-  <div class="field">
-    <%= form.label :isbn %>
-    <%= form.text_field :isbn, id: :textbook_isbn %>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email, id: :textbook_email %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div><!--container ends here-->

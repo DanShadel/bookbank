@@ -1,26 +1,28 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+	<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @textbook.title %>
-</p>
+	<p>
+	  <strong>Title:</strong>
+	  <%= @textbook.title %>
+	</p>
 
-<p>
-  <strong>Condition:</strong>
-  <%= @textbook.condition %>
-</p>
+	<p>
+	  <strong>Condition:</strong>
+	  <%= @textbook.condition %>
+	</p>
 
-<p>
-  <strong>Isbn:</strong>
-  <%= @textbook.isbn %>
-</p>
+	<p>
+	  <strong>Isbn:</strong>
+	  <%= @textbook.isbn %>
+	</p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @textbook.email %>
-</p>
+	<p>
+	  <strong>Email:</strong>
+	  <%= @textbook.email %>
+	</p>
 
 
 
-<%= link_to 'Edit', edit_textbook_path(@textbook) %> |
-<%= link_to 'Back', textbooks_path %>
+	<%= link_to 'Edit', edit_textbook_path(@textbook) %> |
+	<%= link_to 'Back', textbooks_path %>
+</div><!--container ends here-->
