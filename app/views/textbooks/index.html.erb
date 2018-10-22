@@ -39,8 +39,11 @@
             <div class="textbook-listing-box">
               <ul>
                   <li class="textbook-title"><h2>Title</h2><%= textbook.title %></li>
+                  <li class="textbook-author"><h2>Author</h2><%= textbook.author %></li>
                   <li class="textbook-condition"><h2>Condition</h2><%= textbook.condition %></li>
                   <li class="textbook-isbn"><h2>ISBN</h2><%= textbook.isbn %></li>
+                  <li class="textbook-price"><h2>Price</h2><%= textbook.price %></li>
+                  <li class="textbook-description"><h2>Description</h2><%= textbook.description %></li>
                   <li class="textbook-email"><h2>Email</h2><%= textbook.email%></li>
                   <li class="link-to-text"><%= link_to 'Show', textbook %> |
                   <%= link_to 'Edit', edit_textbook_path(textbook) %> |
@@ -51,8 +54,6 @@
         <% end %>
       </div><!--row ends here-->
     </div><!--container ends here-->
-
-
 
     <br>
     </div><!--row ends here-->

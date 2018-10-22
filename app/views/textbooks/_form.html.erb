@@ -25,9 +25,7 @@
   <%= f.input :price%>
   <%= f.input :description%>
   <%= f.input :email%>
-  <%= f.input :amount_used, as: :radio_buttons, collection: ['Unknown', 'A little', 'A moderate amount', 'A lot']%>
-
-
+  <%= f.input :amount_used, as: :select, collection: ['Unknown', 'A little', 'A moderate amount', 'A lot']%>
 
   <%= f.button :submit %>
 <% end %>
