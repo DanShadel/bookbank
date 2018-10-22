@@ -3,8 +3,17 @@
 <h1>Textbooks</h1>
 
 <%= form_tag(textbooks_path, method: :get) do %>
-  <%= text_field_tag :title %>
+  
+  <%= text_field_tag :input %>
+
+  <select name="category">
+    <option value="Title">Title</option>
+    <option value="ISBN">ISBN</option>
+    <option value="Author">Author</option>
+  </select>
+
   <%= submit_tag 'Search', name: nil %>
+
 <% end %>
 
 <table>
