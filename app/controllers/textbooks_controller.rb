@@ -4,7 +4,7 @@ class TextbooksController < ApplicationController
   # GET /textbooks
   # GET /textbooks.json
   def index
-     @textbooks = Textbook.search(params[:title])
+     @textbooks = Textbook.search(params[:category],params[:input])
   end
 
   # GET /textbooks/1
@@ -69,6 +69,6 @@ class TextbooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def textbook_params
-      params.require(:textbook).permit(:title, :condition, :isbn, :email)
+      params.require(:textbook).permit(:title, :condition, :isbn, :email, :category)
     end
 end
