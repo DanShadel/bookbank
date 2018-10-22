@@ -1,3 +1,4 @@
+
 <div class="index-background">
   <div class="container">
      <!--  <br>
@@ -16,10 +17,15 @@
       </div><!--row ends here-->
       <div class="col-4">
         <div class="search-bar">
-        <%= form_tag(textbooks_path, method: :get) do %>
-          <%= text_field_tag :title %>
-          <%= submit_tag 'Search', name: nil %>
-        <% end %>
+       <%= form_tag(textbooks_path, method: :get) do %>
+        <%= text_field_tag :input %>
+          <select name="category">
+            <option value="Title">Title</option>
+            <option value="ISBN">ISBN</option>
+            <option value="Author">Author</option>
+          </select>
+        <%= submit_tag 'Search', name: nil %>
+      <% end %>
         </div><!--search-bar ends here-->
       </div><!--col-4 ends here-->
     </div><!--row ends here-->
