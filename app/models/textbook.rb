@@ -1,5 +1,6 @@
 class Textbook < ApplicationRecord
 
+	belongs_to :user
 	#Find textbooks in section CATEGORY with identifier INPUT
 	def self.search(category,input)
 
