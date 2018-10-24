@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   root 'textbooks#index'
   get 'pages/about'
   get 'pages/error'
+  get 'pages/account'
+  get 'pages/my_listings'
   
 end

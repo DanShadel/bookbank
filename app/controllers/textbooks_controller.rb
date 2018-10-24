@@ -1,5 +1,7 @@
 class TextbooksController < ApplicationController
+  #make sure users are logged in when doing these actions
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
+  #find the correct listing when doing these actions
   before_action :set_textbook, only: [:show, :edit, :update, :destroy]
 
   # GET /textbooks
@@ -20,6 +22,7 @@ class TextbooksController < ApplicationController
 
   # GET /textbooks/1/edit
   def edit
+    #Check if the user owns the textbook
     wrong_user_check
 
   end
@@ -57,6 +60,7 @@ class TextbooksController < ApplicationController
   # DELETE /textbooks/1
   # DELETE /textbooks/1.json
   def destroy
+    #Check if the user owns this
     wrong_user_check
     @textbook.destroy
     respond_to do |format|
@@ -76,6 +80,7 @@ class TextbooksController < ApplicationController
       params.require(:textbook).permit(:title, :condition, :edition, :section, :isbn_10, :isbn_13, :email, :category, :price, :author, :description, :amount_used)
     end
 
+    #Checks user ownership and displays an error if you don't
     def wrong_user_check
       if @textbook.user != current_user
         respond_to do |format|
