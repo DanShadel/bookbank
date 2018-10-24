@@ -1,12 +1,6 @@
 
 <div class="index-background">
   <div class="container">
-     <!--  <br>
-      <%= link_to 'New Textbook', new_textbook_path %>
-      <br>
-      <%= link_to 'All Textbooks', textbooks_path %>
-      <p id="notice"><%= notice %></p> -->
-
 
 
     <div class="row">
@@ -28,15 +22,17 @@
             <div class="textbook-listing-box">
               <ul>
                   <li class="textbook-title"><h2>Title</h2><%= textbook.title %></li>
-                  <li class="textbook-author"><h2>Author</h2><%= textbook.author %></li>
-                  <li class="textbook-condition"><h2>Condition</h2><%= textbook.condition %></li>
-                  <li class="textbook-isbn"><h2>ISBN</h2><%= textbook.isbn %></li>
-                  <li class="textbook-price"><h2>Price</h2><%= textbook.price %></li>
-                  <li class="textbook-description"><h2>Description</h2><%= textbook.description %></li>
-                  <li class="textbook-email"><h2>Email</h2><%= textbook.email%></li>
-                  <li class="link-to-text"><%= link_to 'Show', textbook %> |
-                  <%= link_to 'Edit', edit_textbook_path(textbook) %> |
-                  <%= link_to 'Destroy', textbook, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                  <li class="textbook-isbn"><h2>ISBN-10</h2><%= textbook.isbn_10 %></li>
+                  <li class="textbook-isbn"><h2>ISBN-13</h2><%= textbook.isbn_13 %></li>
+                  <li class="textbook-price"><h2>Price</h2><%= number_to_currency(textbook.price) %></li>
+                  <li class="link-to-text">
+                  <%= link_to 'Show', textbook %> 
+                  <% if textbook.user == current_user %>
+                    | 
+                    <%= link_to 'Edit', edit_textbook_path(textbook) %> |
+                    <%= link_to 'Destroy', textbook, method: :delete, data: { confirm: 'Are you sure?' }%>
+                  <% end %>
+                  </li>
                </ul>
             </div><!--textbook-listing-box ends here-->
           </div><!--col-md-4 ends here-->

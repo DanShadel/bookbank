@@ -1,9 +1,11 @@
+<div class="container">
+    <div class="container">
+
 <h2>Log in</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
- <div class="container">
-    <div class="container">
+ 
   <div class="form-inputs">
     <%= f.input :email,
                 required: false,
@@ -21,8 +23,8 @@
 <% end %>
 
 
-</div>
-</div>
 <%= render "devise/shared/links" %>
 
 
+</div>
+</div>

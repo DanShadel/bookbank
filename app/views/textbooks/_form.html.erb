@@ -1,6 +1,4 @@
 
-<div class="container">
-  
 <%= simple_form_for @textbook do |f| %>
 
   <% if textbook.errors.any? %>
@@ -20,14 +18,16 @@
 
   <%= f.input :title%>
   <%= f.input :author%>
-  <%= f.input :condition %>
-  <%= f.input :isbn %>
+  <%= f.input :edition%>
+  <%= f.input :section%>
+  <%= f.input :condition, as: :radio_buttons, collection: ["New", "Good", "Okay", "Bad"] %>
+  <%= f.input :isbn_10, :input_html => {:minlength => 10 , maxlength: 10} %>
+  <%= f.input :isbn_13, :input_html => {:minlength => 13 , maxlength: 13} %>
   <%= f.input :price%>
   <%= f.input :description%>
-  <%= f.input :email%>
-  <%= f.input :amount_used, as: :select, collection: ['Unknown', 'A little', 'A moderate amount', 'A lot']%>
+  <%= f.input :amount_used, as: :radio_buttons, collection: ['Unknown', 'A little', 'Some', 'A lot']%>
 
   <%= f.button :submit %>
 <% end %>
-</div><!--container ends here-->
+
 

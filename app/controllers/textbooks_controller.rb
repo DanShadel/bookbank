@@ -20,6 +20,8 @@ class TextbooksController < ApplicationController
 
   # GET /textbooks/1/edit
   def edit
+    wrong_user_check
+
   end
 
   # POST /textbooks
@@ -55,6 +57,7 @@ class TextbooksController < ApplicationController
   # DELETE /textbooks/1
   # DELETE /textbooks/1.json
   def destroy
+    wrong_user_check
     @textbook.destroy
     respond_to do |format|
       format.html { redirect_to textbooks_url, notice: 'Textbook was successfully destroyed.' }
@@ -70,6 +73,15 @@ class TextbooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def textbook_params
-      params.require(:textbook).permit(:title, :condition, :isbn, :email, :category, :price, :author, :description, :amount_used)
+      params.require(:textbook).permit(:title, :condition, :edition, :section, :isbn_10, :isbn_13, :email, :category, :price, :author, :description, :amount_used)
     end
-end
+
+    def wrong_user_check
+      if @textbook.user != current_user
+        respond_to do |format|
+          format.html{redirect_to pages_error_path, notice: "This isn\'t your listing!"}
+          format.json { head :no_content }
+        end
+      end
+    end
+  end
