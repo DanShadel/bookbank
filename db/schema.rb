@@ -10,20 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181021224017) do
+ActiveRecord::Schema.define(version: 20181024001023) do
 
   create_table "textbooks", force: :cascade do |t|
     t.string "title"
     t.string "condition"
-    t.string "isbn"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email"
     t.decimal "price"
     t.text "description"
     t.string "author"
     t.string "location"
     t.string "amount_used"
+    t.integer "user_id"
+    t.string "isbn_10"
+    t.string "isbn_13"
+    t.string "edition"
+    t.string "section"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "username"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end

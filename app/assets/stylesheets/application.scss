@@ -4,6 +4,9 @@
  */
 @import "bootstrap";
 
+body { 
+    padding-top: 65px; 
+}
 
 .textbook-listing-box ul {
 	list-style-type: none;
@@ -93,6 +96,11 @@ div.boolean, .simple_form input[type='submit'] {
 .simple_form label {
   float: left;
   width: 100px;
-  text-align: right;
+  text-align: left;
   margin: 2px 10px;
 }
+
+.navbar {
+        background-color:#303F9F;
+        background-image: none;
+    }

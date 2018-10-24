@@ -5,16 +5,30 @@
   <strong>Title:</strong>
   <%= @textbook.title %>
 </p>
+
+<p>
+  <strong>Edition:</strong>
+  <%= @textbook.edition %>
+</p>
+
 <p>
   <strong>Author:</strong>
   <%= @textbook.author %>
 </p>
 
 <p>
-  <strong>Isbn:</strong>
-  <%= @textbook.isbn %>
+  <strong>Isbn-10:</strong>
+  <%= @textbook.isbn_10 %>
+</p>
+<p>
+  <strong>Isbn-13:</strong>
+  <%= @textbook.isbn_13 %>
 </p>
 
+<p>
+  <strong>Section:</strong>
+  <%= @textbook.section %>
+</p>
 
 	<p>
 	  <strong>Condition:</strong>
@@ -34,12 +48,18 @@
 
 <p>
   <strong>Price:</strong>
-  <%= @textbook.price %>
+  <%= number_to_currency(@textbook.price) %>
+</p>
+
+
+<p>
+  <strong>Sold by:</strong>
+  <%= @textbook.user.username %>
 </p>
 
 <p>
   <strong>Email:</strong>
-  <%= @textbook.email %>
+  <%= @textbook.user.email %>
 </p>
 
 
