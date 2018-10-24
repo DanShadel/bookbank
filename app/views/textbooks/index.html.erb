@@ -1,7 +1,6 @@
-
 <div class="index-background">
   <div class="container">
-
+      <%= notice %>
 
     <div class="row">
       <div class="col-8">
@@ -17,6 +16,7 @@
 
     <div class="container">
       <div class="row">
+        <!-- Print this data for every listing (realistically we should add a limit. Controller?)  -->
         <% @textbooks.each do |textbook| %>
           <div class="col-md-4 textbook-box-col">
             <div class="textbook-listing-box">
@@ -26,8 +26,10 @@
                   <li class="textbook-isbn"><h2>ISBN-13</h2><%= textbook.isbn_13 %></li>
                   <li class="textbook-price"><h2>Price</h2><%= number_to_currency(textbook.price) %></li>
                   <li class="link-to-text">
-                  <%= link_to 'Show', textbook %> 
-                  <% if textbook.user == current_user %>
+                  <%= link_to 'Show', textbook %>
+
+                  <!-- Only show Edit & Destroy on listings the user owns -->
+                  <% if textbook.user == current_user and user_signed_in? %>
                     | 
                     <%= link_to 'Edit', edit_textbook_path(textbook) %> |
                     <%= link_to 'Destroy', textbook, method: :delete, data: { confirm: 'Are you sure?' }%>

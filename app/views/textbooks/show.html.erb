@@ -1,6 +1,10 @@
 <div class="container">
 	<p id="notice"><%= notice %></p>
 
+
+
+<!-- Display lsting info -->
+
 <p>
   <strong>Title:</strong>
   <%= @textbook.title %>
@@ -62,9 +66,12 @@
   <%= @textbook.user.email %>
 </p>
 
+  <!--  Only show edit button if you're the owner  -->
+  <% if @textbook.user == current_user and user_signed_in? %>
+	   <%= link_to 'Edit', edit_textbook_path(@textbook) %> |
+  <% end %>
 
-
-
-	<%= link_to 'Edit', edit_textbook_path(@textbook) %> |
 	<%= link_to 'Back', textbooks_path %>
 </div><!--container ends here-->
+
+
