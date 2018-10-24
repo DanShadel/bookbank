@@ -9,8 +9,11 @@ class Textbook < ApplicationRecord
 	    where('title LIKE ?', "%#{input}%")
 
 	  #Searching for ISBN
-	  elsif category == "ISBN"
-	  	where('ISBN like ?', "%#{input}%")
+	  elsif category == "ISBN-10"
+	  	where('isbn_10 like ?', "%#{input}%")
+
+	  elsif category == "ISBN-10"
+	  	where('isbn_13 like ?', "%#{input}%")
 
 	  #Searching fo Author
 	  elsif category == "Author"
