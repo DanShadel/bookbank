@@ -1,0 +1,26 @@
+
+<%= simple_form_for(@message) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+
+
+  <ul>
+    <% @message.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+ 
+
+  <div class="form-inputs">
+
+    <%= f.input :content %>
+    <% f.hidden_field :recipient_id, value: :recipient_id %>
+    <% f.hidden_field :read, value: false %>
+
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
