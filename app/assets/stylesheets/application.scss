@@ -5,7 +5,9 @@
 @import "bootstrap";
 
 body { 
-    padding-top: 65px; 
+    padding-top: 65px;
+    background-image: url(lined_paper_bg1.png); 
+
 }
 
 .textbook-listing-box ul {
@@ -23,7 +25,7 @@ body {
 
 .index-background {
 	min-height: 1000px;
-	background: #C4CAE9;
+	
 
 
 }
@@ -49,7 +51,7 @@ body {
 
 .navbar-background {
 	background-color: #303F9F;
-	positition: fixed;
+	position: fixed;
 
 }
 
@@ -101,6 +103,6 @@ div.boolean, .simple_form input[type='submit'] {
 }
 
 .navbar {
-        background-color:#303F9F;
+        background-color:#C4CAE9;
         background-image: none;
     }
