@@ -1,5 +1,15 @@
 <p id="notice"><%= notice %></p>
 
+
+<%= form_tag(messages_path, method: :get) do %>
+    <select name="filter">
+      <option value="Inbox">Inbox</option>
+      <option value="Sent Mail">Sent mail</option>
+    </select>
+  <%= submit_tag 'Go', name: nil%>
+<% end %>
+
+
 <h1>Inbox</h1>
 
 <table>
@@ -16,11 +26,12 @@
   <tbody>
     <% @messages.each do |message| %>
       <tr>
+        <td><%= message.user.username %></td>
         <td><%= message.content %></td>
-        <td><%= message.owner_id %></td>
         <td><%= message.recipient_id %></td>
         <td><%= message.read %></td>
         <td><%= link_to 'Show', message %></td>
+        <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' }%></td>
       </tr>
     <% end %>
   </tbody>

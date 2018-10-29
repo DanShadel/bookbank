@@ -6,12 +6,13 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
   def index
-    @messages = Message.where(owner_id: current_user)
+    @messages = Message.filter(params[:filter],current_user.id)
   end
 
   # GET /messages/1
   # GET /messages/1.json
   def show
+    @message.read = true
   end
 
   # GET /messages/new
@@ -29,6 +30,7 @@ class MessagesController < ApplicationController
 
     @message = Message.new(message_params)
     @message.user = current_user
+    @message.read = false
 
     respond_to do |format|
       if @message.save

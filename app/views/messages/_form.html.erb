@@ -14,9 +14,8 @@
 
   <div class="form-inputs">
 
+    <%= f.hidden_field :recipient_id, :value => params[:recipient_id] %>
     <%= f.input :content %>
-    <% f.hidden_field :recipient_id, value: :recipient_id %>
-    <% f.hidden_field :read, value: false %>
 
   </div>
 
