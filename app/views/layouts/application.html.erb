@@ -38,11 +38,12 @@
             <%= link_to 'About us', pages_about_path, class: 'navbar-brand' %>
           </li>
 
-          <li class="nav-item dropdown">
+         
 
 
               <!-- if the user is signed in -->
               <% if user_signed_in? %>
+               <li class="nav-item dropdown">
                   <a class="nav-link dropdown toggle" href="#" id ="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Account
                   </a>
@@ -53,11 +54,15 @@
                       <%= "Hello, #{current_user.username}"%>    
 
                     </div>
-
+                      </li>
               <% else %>
-                <%= link_to('Login', new_user_session_path, class:"dropdown-item")  %>  
-              <% end %>
+
+               <li class="textbook-navbar">
+                <%= link_to('Login', new_user_session_path, class: "navbar-brand")  %>  
               </li>
+
+              <% end %>
+            
 
               
           
