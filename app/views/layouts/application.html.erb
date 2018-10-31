@@ -22,12 +22,7 @@
           <li class="textbook-navbar">
              <%= form_tag(textbooks_path, method: :get) do %>
               <%= text_field_tag :input, "" %>
-                <select name="category">
-                  <option value="Title">Title</option>
-                  <option value="ISBN-10">ISBN-10</option>
-                  <option value="ISBN-13">ISBN-13</option>
-                  <option value="Author">Author</option>
-                </select>
+             <%= select_tag(:category, options_for_select([ ['Title', "Title"], ['ISBN-10', "ISBN-10"], ['ISBN-13', "ISBN-13"], ['Author', "Author"]], :selected => params[:category]))  %> 
               <%= submit_tag 'Search', name: nil, :class=>"btn btn-outline-success my-2 my-sm-0" %>
             <% end %>
             </li><!--search-bar ends here-->
