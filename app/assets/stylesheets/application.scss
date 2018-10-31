@@ -5,7 +5,9 @@
 @import "bootstrap";
 
 body { 
-    padding-top: 65px; 
+    padding-top: 65px;
+    background-image: url(lined_paper_bg1.png); 
+
 }
 
 .textbook-listing-box ul {
@@ -23,7 +25,7 @@ body {
 
 .index-background {
 	min-height: 1000px;
-	background: #C4CAE9;
+	
 
 
 }
@@ -46,6 +48,7 @@ body {
 	padding-bottom: 15px;
 	
 }
+
 
 .textbook-navbar {
 	list-style-type: none;
