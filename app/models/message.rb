@@ -1,11 +1,5 @@
 class Message < ApplicationRecord
-	belongs_to :user
+	belongs_to :owner, class_name: "User", foreign_key: "owner_id"
+  	belongs_to :recipient, class_name: "User", foreign_key: "recipient_id"
 
-	def self.filter(filter,user_id)
-		if filter == "Sent Mail"
-			where('recipient_id like ?' , '%#{user_id}%')
-		else
-			where('user_id like ?', '%#{user_id}%')
-		end
-	end
 end

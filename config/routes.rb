@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+	
+  get 'messages/sent'
   resources :messages
   devise_for :users
   resources :textbooks
@@ -8,5 +10,6 @@ Rails.application.routes.draw do
   get 'pages/error'
   get 'pages/account'
   get 'pages/my_listings'
+ 
   
 end

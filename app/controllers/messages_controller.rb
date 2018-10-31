@@ -5,14 +5,23 @@ class MessagesController < ApplicationController
 
   # GET /messages
   # GET /messages.json
+
+  #Default to recieved mail
   def index
-    @messages = Message.filter(params[:filter],current_user.id)
+    @messages = Message.where(recipient: current_user)
   end
 
   # GET /messages/1
   # GET /messages/1.json
   def show
-    @message.read = true
+    if(@message.recipient == current_user)
+      @message.read = true
+      Message.update(@message.id, :read => true)
+    end
+  end
+
+  def sent
+    @messages = Message.where(owner: current_user)
   end
 
   # GET /messages/new
@@ -20,16 +29,12 @@ class MessagesController < ApplicationController
     @message = Message.new
 
   end
-
-   def edit
- 
-  end
   # POST /messages
   # POST /messages.json
   def create
 
     @message = Message.new(message_params)
-    @message.user = current_user
+    @message.owner = current_user
     @message.read = false
 
     respond_to do |format|
