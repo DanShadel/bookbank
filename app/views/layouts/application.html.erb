@@ -12,6 +12,7 @@
 
 
     <div class="container">
+      <!-- -->
       <nav class="navbar fixed-top navbar-expand-lg navbar-background-dark">
       	<ul class="navbar-nav navbar-brand">
 
@@ -51,8 +52,9 @@
                     Account
                   </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <%= link_to('Logout', destroy_user_session_path, method: :delete, class:"dropdown-item") %> 
+                      <%= link_to('Inbox', messages_path,class:"dropdown-item") %>
                       <%= link_to('My Account', pages_account_path,class:"dropdown-item") %>
+                      <%= link_to('Logout', destroy_user_session_path, method: :delete, class:"dropdown-item") %> 
                       <%= "Hello, #{current_user.username}"%>    
 
                     </div>
@@ -75,8 +77,6 @@
       </div>
     </nav><!--navbar ends here-->
   </div><!--container for nav bar-->
-
-
 
 
 

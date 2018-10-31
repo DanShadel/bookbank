@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+	
+  get 'messages/sent'
+  resources :messages
   devise_for :users
   resources :textbooks
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -7,5 +10,6 @@ Rails.application.routes.draw do
   get 'pages/error'
   get 'pages/account'
   get 'pages/my_listings'
+ 
   
 end
