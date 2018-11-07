@@ -10,16 +10,26 @@ body {
 
 }
 
+.container-hero-image {
+  height: 500px;
+  width: fill;
+  content: url(hero_image_books.jpg);
+  object-fit: cover; 
+}
+
 .textbook-listing-box ul {
 	list-style-type: none;
 	position: relative;
 	bottom: 0;
+  color: #303F9F;
 }
 
 .textbook-listing-box {
 	height: 400px;
 	position: relative;
-	background: #3F51B5;
+	background: #FFFFFF;
+  border-style: solid; 
+  border-color: #4CAF50;
 
 }
 
@@ -44,8 +54,9 @@ body {
 }
 
 .textbooks-heading {
-	padding-top: 15px;
+	padding-top: 50px;
 	padding-bottom: 15px;
+  color: #303F9F;
 	
 }
 
@@ -67,7 +78,7 @@ h1 {
 
 h2 {
   font-family: 'Abril Fatface', serif;
-  font-color: #303F9F;
+  color: #303F9F;
   font-weight: bold;
   font-size: 18px;
   line-height: 20px;
@@ -76,7 +87,7 @@ h2 {
 
 h3 {
   font-family: 'Abril Fatface', serif;
-  font-color: #303F9F;
+  color: #303F9F;
   font-weight: bold;
   font-size: 16px;
   line-height: 18px;
@@ -100,4 +111,12 @@ div.boolean, .simple_form input[type='submit'] {
 .navbar {
         background-color:#C4CAE9;
         background-image: none;
+        height:100px;
     }
+
+.nav-link {
+  color: #303F9F;
+}
+.textbook-navbar ul li a {
+    color: #303F9F;
+}
