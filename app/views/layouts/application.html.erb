@@ -22,7 +22,7 @@
           <li class="textbook-navbar">
              <%= form_tag(textbooks_path, method: :get) do %>
               <%= text_field_tag :input, "" %>
-             <%= select_tag(:category, options_for_select([ ['Title', "Title"], ['ISBN-10', "ISBN-10"], ['ISBN-13', "ISBN-13"], ['Author', "Author"]], :selected => params[:category]))  %> 
+             <%= select_tag(:category, options_for_select([ ['Title', "title"], ['ISBN-10', "isbn_10"], ['ISBN-13', "isbn_13"], ['Author', "author"]], :selected => params[:category]))  %> 
               <%= submit_tag 'Search', name: nil, :class=>"btn btn-outline-success my-2 my-sm-0" %>
             <% end %>
             </li><!--search-bar ends here-->
@@ -57,10 +57,8 @@
                       </li>
               <% else %>
 
-               <li class="textbook-navbar">
-                <%= link_to('Login', new_user_session_path, class: "navbar-brand")  %>  
-              </li>
-
+              <li class="textbook-navbar"><%= link_to('Login', new_user_session_path, class: "navbar-brand")  %></li>
+              <li class="textbook-navbar"><%= link_to "Sign up", new_user_registration_path, class: "navbar-brand" %></li>
               <% end %>
             
 

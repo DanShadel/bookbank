@@ -5,18 +5,18 @@ class Textbook < ApplicationRecord
 	def self.search(category,input)
 
 	  #searching for titles
-	  if category == "Title"
+	  if category == "title"
 	    where('title LIKE ?', "%#{input}%")
 
 	  #Searching for ISBN10
-	  elsif category == "ISBN-10"
+	  elsif category == "isbn_10"
 	  	where('isbn_10 like ?', "%#{input}%")
 
-	  elsif category == "ISBN-13"
+	  elsif category == "isbn_13"
 	  	where('isbn_13 like ?', "%#{input}%")
 
 	  #Searching fo Author
-	  elsif category == "Author"
+	  elsif category == "author"
 	  	where('author LIKE ?', "%#{input}%")
 
 	  # Can add other search attributes if necessecary
