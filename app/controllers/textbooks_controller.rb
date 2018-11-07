@@ -7,7 +7,18 @@ class TextbooksController < ApplicationController
   # GET /textbooks
   # GET /textbooks.json
   def index
-     @textbooks = Textbook.search(params[:category],params[:input])
+
+
+    if(params[:category])
+      
+      @textbooks= textbooks.search(params[:category], params[:input])
+  
+      
+    else
+      flash[:notice] = "default index action, no search category"
+      #@textbooks = Textbook.search(params[:category],params[:input])
+      @textbooks = Textbook.all
+   end
   end
 
   # GET /textbooks/1
