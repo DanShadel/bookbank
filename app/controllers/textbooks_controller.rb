@@ -11,7 +11,7 @@ class TextbooksController < ApplicationController
 
     if(params[:category])
       
-      @textbooks= textbooks.search(params[:category], params[:input])
+      @textbooks= Textbook.search(params[:category], params[:input])
   
       
     else
