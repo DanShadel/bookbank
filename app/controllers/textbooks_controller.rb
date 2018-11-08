@@ -7,16 +7,25 @@ class TextbooksController < ApplicationController
   # GET /textbooks
   # GET /textbooks.json
   def index
-
-
     if(params[:category])
-      
-      @textbooks= Textbook.search(params[:category], params[:input])
-  
+      @textbooks = []
+      search = Textbook.all
+
+      fz = FuzzyMatch.new(search, :read => params[:category])
+      query = fz.find(params[:input])
+
+      while query != nil
+    
+        @textbooks.push(query)
+        search -= [query]
+
+        fz = FuzzyMatch.new(search, :read => params[:category])
+        query = fz.find(params[:input])
+        
+      end
+     
       
     else
-      flash[:notice] = "default index action, no search category"
-      #@textbooks = Textbook.search(params[:category],params[:input])
       @textbooks = Textbook.all
    end
   end
