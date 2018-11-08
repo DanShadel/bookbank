@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 	
   get 'messages/sent'
+  get 'messages/reply'
+  
   resources :messages
   devise_for :users
   resources :textbooks
