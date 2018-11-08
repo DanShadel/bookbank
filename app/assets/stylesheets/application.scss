@@ -69,7 +69,7 @@ body {
 
 h1 {
   font-family: 'Abril Fatface', serif;
-  font-color: #303F9F;
+  color: #303F9F;
   font-weight: bold;
   font-size: 26px;
   line-height: 30px;
@@ -86,7 +86,7 @@ h2 {
 }
 
 h3 {
-  font-family: 'Abril Fatface', serif;
+  font-family: 'Josefin Sans', serif;
   color: #303F9F;
   font-weight: bold;
   font-size: 16px;
@@ -114,13 +114,17 @@ div.boolean, .simple_form input[type='submit'] {
         height:100px;
     }
 
-.nav-link {
+.navbar ul li a {
   color: #303F9F;
+  font-family: 'Josefin Sans', serif;
 }
+
 .textbook-navbar ul li a {
     color: #303F9F;
 }
+
 .message-container{
   border: solid;
 
 }
+
