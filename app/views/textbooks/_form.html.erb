@@ -27,7 +27,18 @@
   <%= f.input :description%>
   <%= f.input :amount_used, as: :radio_buttons, collection: ['Unknown', 'A little', 'Some', 'A lot']%>
 
+
+  <% if @textbook.image? %>
+
+      <%= image_tag @textbook.image.url %>
+      <br>
+
+      <%= f.check_box :remove_image %>
+  <% end %>
+
+  <%= f.file_field :image %>
   <%= f.button :submit %>
+  
 <% end %>
 
 
