@@ -21,6 +21,7 @@ gem 'simple_form'
 gem 'devise'
 gem 'fuzzy_match', '~> 2.1'
 gem 'carrierwave', '~> 1.0'
+gem 'fog-aws'
 
 
 
