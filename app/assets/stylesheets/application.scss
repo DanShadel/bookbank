@@ -6,14 +6,14 @@
 
 body { 
     padding-top: 100px;
-    background-image: url(lined_paper_bg1.png); 
+    background-image: asset_url('lined_paper_bg1.png'); 
 
 }
 
 .container-hero-image {
   height: 500px;
   width: fill;
-  content: url(hero_image_books.jpg);
+  content: asset_url('hero_image_books.jpg');
   object-fit: cover; 
 }
 
