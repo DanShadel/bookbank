@@ -1,6 +1,8 @@
 class Textbook < ApplicationRecord
 
 	belongs_to :user
+	mount_uploader :image, ImageUploader
+	
 	#Find textbooks in section CATEGORY with identifier INPUT
 	def self.search(category,input)
 

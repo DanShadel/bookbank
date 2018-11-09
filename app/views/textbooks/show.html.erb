@@ -66,6 +66,15 @@
   <%= @textbook.user.email %>
 </p>
 
+
+<% if @texbook.image? %>
+
+  <%= image_tag @textbook.image.url %>
+  
+<%end %>
+
+
+
   <!--  Only show edit button if you're the owner  -->
   <% if @textbook.user == current_user and user_signed_in? %>
 	   <%= link_to 'Edit', edit_textbook_path(@textbook) %> |
