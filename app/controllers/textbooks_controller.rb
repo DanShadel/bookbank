@@ -7,16 +7,25 @@ class TextbooksController < ApplicationController
   # GET /textbooks
   # GET /textbooks.json
   def index
-
-
     if(params[:category])
-      
-      @textbooks= Textbook.search(params[:category], params[:input])
-  
+      @textbooks = []
+      search = Textbook.all
+
+      fz = FuzzyMatch.new(search, :read => params[:category])
+      query = fz.find(params[:input])
+
+      while query != nil
+    
+        @textbooks.push(query)
+        search -= [query]
+
+        fz = FuzzyMatch.new(search, :read => params[:category])
+        query = fz.find(params[:input])
+        
+      end
+     
       
     else
-      flash[:notice] = "default index action, no search category"
-      #@textbooks = Textbook.search(params[:category],params[:input])
       @textbooks = Textbook.all
    end
   end
@@ -88,7 +97,7 @@ class TextbooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def textbook_params
-      params.require(:textbook).permit(:title, :condition, :edition, :section, :isbn_10, :isbn_13, :email, :category, :price, :author, :description, :amount_used)
+      params.require(:textbook).permit(:title, :condition, :edition, :section, :isbn_10, :isbn_13, :email, :category, :price, :author, :description, :amount_used, :image)
     end
 
     #Checks user ownership and displays an error if you don't

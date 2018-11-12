@@ -14,11 +14,31 @@ class MessagesController < ApplicationController
   # GET /messages/1
   # GET /messages/1.json
   def show
+
     if(@message.recipient == current_user)
       @message.read = true
       Message.update(@message.id, :read => true)
     end
+
+    @messages = []
+    parent = @message
+    @messages.push(parent)
+  
+
+    while parent.parent_id != 0  and parent.parent_id != nil
+
+      parent = Message.find(parent.parent_id)
+      @messages.push(parent)
+
+    end
   end
+
+  def reply
+    @message = Message.new
+    render 'new'
+
+  end
+
 
   def sent
     @messages = Message.where(owner: current_user)
@@ -67,6 +87,6 @@ class MessagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def message_params
-      params.require(:message).permit(:content, :owner_id, :recipient_id, :read, :user_id)
+      params.require(:message).permit(:content, :owner_id, :recipient_id, :read, :user_id, :parent_id)
     end
 end

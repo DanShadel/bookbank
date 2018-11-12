@@ -14,6 +14,13 @@
 
   <div class="form-inputs">
 
+    
+    <% if params[:parent] %>
+      <%= f.hidden_field :parent_id, :value => params[:parent] %>
+    <% else %>
+      <%= f.hidden_field :parent_id, :value => 0 %>
+    <% end %>
+
     <%= f.hidden_field :recipient_id, :value => params[:recipient_id] %>
     <%= f.input :content %>
 

@@ -5,8 +5,8 @@
 @import "bootstrap";
 
 body { 
-    padding-top: 65px;
-    background-image: url(lined_paper_bg1.png); 
+    padding-top: 100px;
+    background-image: asset_url('lined_paper_bg1.png'); 
 
 }
 .container-about-page h1 {
@@ -21,7 +21,7 @@ body {
 .container-hero-image {
   height: 500px;
   width: fill;
-  content: url(hero_image_books.jpg);
+  content: asset_url('hero_image_books.jpg');
   object-fit: cover; 
 
 }
@@ -141,3 +141,13 @@ div.boolean, .simple_form input[type='submit'] {
   color: #303F9F;
   font-family: 'Josefin Sans';
 }
+
+.textbook-navbar ul li a {
+    color: #303F9F;
+}
+
+.message-container{
+  border: solid;
+
+}
+
