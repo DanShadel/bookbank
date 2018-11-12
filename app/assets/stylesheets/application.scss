@@ -5,8 +5,8 @@
 @import "bootstrap";
 
 body { 
-    padding-top: 100px;
-    background-image: asset_url('lined_paper_bg1.png'); 
+    padding-top: 65px;
+    background-image: url(lined_paper_bg1.png); 
 
 }
 .container-about-page h1 {
@@ -18,14 +18,22 @@ body {
   line-height: 20px;
   color:#4CAF50;
 }
+
 .container-hero-image {
   height: 500px;
   width: fill;
-  content: asset_url('hero_image_books.jpg');
+  content: url(hero_image_books.jpg);
   object-fit: cover; 
 
 }
+.footer {
+  height: 200px;
+  background: #303F9F;
+}
 
+.footer {
+  color:#FFFFFF;
+}
 .hero-cover {
   height: 500px;
   width: fill;
@@ -141,13 +149,3 @@ div.boolean, .simple_form input[type='submit'] {
   color: #303F9F;
   font-family: 'Josefin Sans';
 }
-
-.textbook-navbar ul li a {
-    color: #303F9F;
-}
-
-.message-container{
-  border: solid;
-
-}
-
