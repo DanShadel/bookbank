@@ -1,70 +1,70 @@
-<div class="container">
+<div class="show-page"><div class="container">
 	<p id="notice"><%= notice %></p>
 
 
 
 <!-- Display lsting info -->
 
-<p>
+<h2>
   <strong>Title:</strong>
   <%= @textbook.title %>
-</p>
+</h2>
 
-<p>
+<h2>
   <strong>Edition:</strong>
   <%= @textbook.edition %>
-</p>
+</h2>
 
-<p>
+<h2>
   <strong>Author:</strong>
   <%= @textbook.author %>
-</p>
+</h2>
 
-<p>
+<h2>
   <strong>Isbn-10:</strong>
   <%= @textbook.isbn_10 %>
-</p>
-<p>
+</h2>
+<h2>
   <strong>Isbn-13:</strong>
   <%= @textbook.isbn_13 %>
-</p>
+</h2>
 
-<p>
+<h2>
   <strong>Section:</strong>
   <%= @textbook.section %>
-</p>
+</h2>
 
-	<p>
+	<h2>
 	  <strong>Condition:</strong>
 	  <%= @textbook.condition %>
-	</p>
+	</h2>
 
-<p>
+<h2>
   <strong>Description:</strong>
   <%= @textbook.description %>
-</p>
+</h2>
 
-<p>
+<h2>
   <strong>Amount used:</strong>
   <%= @textbook.amount_used %>
-</p>
+</h2>
 
 
-<p>
+<h2>
   <strong>Price:</strong>
   <%= number_to_currency(@textbook.price) %>
-</p>
+</h2>
 
 
-<p>
+<h2>
   <strong>Sold by:</strong>
   <%= @textbook.user.username %>
-</p>
+</h2>
 
-<p>
+<h2>
   <strong>Email:</strong>
   <%= @textbook.user.email %>
-</p>
+</h2>
 
   <!--  Only show edit button if you're the owner  -->
   <% if @textbook.user == current_user and user_signed_in? %>
@@ -75,5 +75,7 @@
 
   <%= link_to 'Message this user', new_message_path(:recipient_id => @textbook.user) %>
 </div><!--container ends here-->
+
+</div><!--show page ends here-->
 
 

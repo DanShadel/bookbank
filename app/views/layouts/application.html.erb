@@ -44,9 +44,9 @@
               <!-- if the user is signed in -->
               <% if user_signed_in? %>
                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown toggle" href="#" id ="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <li><a class="nav-link dropdown toggle" href="#" id ="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Account
-                  </a>
+                  </a></li>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <%= link_to('Inbox', messages_path,class:"dropdown-item") %>
                       <%= link_to('My Account', pages_account_path,class:"dropdown-item") %>
