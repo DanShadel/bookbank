@@ -5,8 +5,9 @@
 @import "bootstrap";
 
 body { 
-    padding-top: 65px;
+    padding-top: 100px;
     background-image: asset_url('lined_paper_bg1.png'); 
+
 
 }
 .container-about-page h1 {
@@ -148,4 +149,9 @@ div.boolean, .simple_form input[type='submit'] {
 .navbar ul li a {
   color: #303F9F;
   font-family: 'Josefin Sans';
+}
+
+
+.page-footer{
+ 
 }

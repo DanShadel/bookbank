@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'pages/error'
   get 'pages/account'
   get 'pages/my_listings'
+  get 'pages/faq'
  
   
 end

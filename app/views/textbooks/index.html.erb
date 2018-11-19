@@ -39,9 +39,9 @@
           <div class="col-md-4 textbook-box-col">
             <div class="textbook-listing-box">
               <ul>
+
                   <li class="textbook-title"><h2>Title</h2><%= textbook.title %></li>
-                  <li class="textbook-isbn"><h2>ISBN-10</h2><%= textbook.isbn_10 %></li>
-                  <li class="textbook-isbn"><h2>ISBN-13</h2><%= textbook.isbn_13 %></li>
+                  <li class="textbook-isbn"><h2>ISBN-10</h2><%= textbook.isbn %></li>
                   <li class="textbook-price"><h2>Price</h2><%= number_to_currency(textbook.price) %></li>
                   <li class="link-to-text">
                   <%= link_to 'Show', textbook %>
@@ -64,83 +64,7 @@
     </div><!--row ends here-->
    
 <!-- Footer -->
-<div class="footer">
-<footer class="page-footer font-small blue pt-4">
 
-    <!-- Footer Links -->
-    <div class="container-fluid text-center text-md-left">
-
-      <!-- Grid row -->
-      <div class="row">
-
-        <!-- Grid column -->
-        <div class="col-md-6 mt-md-0 mt-3">
-
-          <!-- Content -->
-          <h2 class="text-uppercase">BookPository</h2>
-          <p>Here you can use rows and columns here to organize your footer content.</p>
-
-        </div>
-        <!-- Grid column -->
-
-        <hr class="clearfix w-100 d-md-none pb-3">
-
-        <!-- Grid column -->
-        <div class="col-md-3 mb-md-0 mb-3">
-
-            <!-- Links -->
-            <h2 class="text-uppercase">BookPository Services</h2>
-
-            <ul class="list-unstyled">
-              <li>
-                <a href="#!">Buy Textbook</a>
-              </li>
-              <li>
-                <a href="#!">Sell Textbook</a>
-              </li>
-              <li>
-                <a href="#!">Create/Manage Profile</a>
-              </li>
-              <li>
-                <a href="#!">Find a User</a>
-              </li>
-            </ul>
-
-          </div>
-          <!-- Grid column -->
-
-          <!-- Grid column -->
-          <div class="col-md-3 mb-md-0 mb-3">
-
-            <!-- Links -->
-            <h2 class="text-uppercase">Help</h2>
-
-            <ul class="list-unstyled">
-              <li>
-                <a href="#!">Frequently Asked Questions</a>
-              </li>
-              <li>
-                <a href="#!">Contact Us</a>
-              </li>
-              <li>
-                <a href="#!">Report a User</a>
-              </li>
-            </ul>
-
-          </div>
-          <!-- Grid column -->
-
-      </div>
-      <!-- Grid row -->
-
-    </div>
-    <!-- Footer Links -->
-
-    
-
-  </footer>
-  <!-- Footer -->
-</div><!--footer ends-->
 
   </div><!--container ends here-->
 </div><!--index-background ends here-->

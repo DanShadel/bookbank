@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181109041424) do
+ActiveRecord::Schema.define(version: 20181119224107) do
 
   create_table "messages", force: :cascade do |t|
     t.text "content"
@@ -33,11 +33,11 @@ ActiveRecord::Schema.define(version: 20181109041424) do
     t.string "location"
     t.string "amount_used"
     t.integer "user_id"
-    t.string "isbn_10"
-    t.string "isbn_13"
     t.string "edition"
     t.string "section"
     t.string "image"
+    t.string "subject"
+    t.string "isbn"
   end
 
   create_table "users", force: :cascade do |t|

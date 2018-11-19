@@ -5,7 +5,6 @@
     <div id="error_explanation">
       <h2><%= pluralize(textbook.errors.count, "error") %> prohibited this textbook from being saved:</h2>
 
-
         <ul>
         <% textbook.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -16,16 +15,14 @@
 
   <!-- Simple Form for textbooks -->
 
-  <%= f.input :title%>
-  <%= f.input :author%>
-  <%= f.input :edition%>
-  <%= f.input :section%>
-  <%= f.input :condition, as: :radio_buttons, collection: ["New", "Good", "Okay", "Bad"] %>
-  <%= f.input :isbn_10, :input_html => {:minlength => 10 , maxlength: 10} %>
-  <%= f.input :isbn_13, :input_html => {:minlength => 13 , maxlength: 13} %>
-  <%= f.input :price%>
-  <%= f.input :description%>
-  <%= f.input :amount_used, as: :radio_buttons, collection: ['Unknown', 'A little', 'Some', 'A lot']%>
+  <%= f.input :title, required: true, error: 'Username is mandatory, please specify one'%>
+  <%= f.input :author, required: true %>
+  <%= f.input :section, label: "Class", required: true%>
+  <%= f.input :condition, as: :radio_buttons, collection: ["New", "Good", "Okay", "Bad"], required: true %>
+  <%= f.input :isbn, label: "ISBN", hint: "ISBN (International Standard Book Number) is a numerical way to identify books", :input_html => {maxlength: 13}, required: true %>
+  <%= f.input :price, required: true%>
+  <%= f.input :description, required: true%>
+  <%= f.input :amount_used, as: :radio_buttons, collection: ['Unknown', 'A little', 'Some', 'A lot'], required: true %>
 
 
   <% if @textbook.image? %>
