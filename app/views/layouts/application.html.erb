@@ -22,7 +22,7 @@
           <li class="textbook-navbar">
              <%= form_tag(textbooks_path, method: :get) do %>
               <%= text_field_tag :input, "" %>
-             <%= select_tag(:category, options_for_select([ ['Title', "title"], ['ISBN-10', "isbn_10"], ['ISBN-13', "isbn_13"], ['Author', "author"]], :selected => params[:category]))  %> 
+             <%= select_tag(:category, options_for_select([ ['Title', "title"], ['ISBN', "isbn"], ['Author', "author"], ["Subject", "subject"]], :selected => params[:category]))  %> 
               <%= submit_tag 'Search', name: nil, :class=>"btn btn-outline-success my-2 my-sm-0" %>
             <% end %>
             </li><!--search-bar ends here-->
@@ -78,4 +78,82 @@
   <body>
     <%= yield %>
   </body>
+  <div class="footer">
+<footer class="page-footer font-small blue pt-4">
+
+    <!-- Footer Links -->
+    <div class="container-fluid text-center text-md-left">
+
+      <!-- Grid row -->
+      <div class="row">
+
+        <!-- Grid column -->
+        <div class="col-md-6 mt-md-0 mt-3">
+
+          <!-- Content -->
+          <h2 class="text-uppercase">BookPository</h2>
+          <p>Here you can use rows and columns here to organize your footer content.</p>
+
+        </div>
+        <!-- Grid column -->
+
+        <hr class="clearfix w-100 d-md-none pb-3">
+
+        <!-- Grid column -->
+        <div class="col-md-3 mb-md-0 mb-3">
+
+            <!-- Links -->
+            <h2 class="text-uppercase">BookPository Services</h2>
+
+            <ul class="list-unstyled">
+              <li>
+                <%= link_to("Buy Textbooks", root_path) %>
+              </li>
+              <li>
+                <%= link_to("Sell a Textbook", new_textbook_path ) %>
+              </li>
+              <% if user_signed_in? %>
+              <li> <%= link_to('My Account', pages_account_path)  %> </li>
+              <li> <%= link_to('My Inbox', messages_path) %> </li>
+              <% else %>
+              <li> <%= link_to('Login', new_user_session_path)  %> </li>
+              <li> <%= link_to('Sign Up', new_user_registration_path) %> </li>
+             
+              <% end %>
+            </ul>
+
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-3 mb-md-0 mb-3">
+
+            <!-- Links -->
+            <h2 class="text-uppercase">Help</h2>
+
+            <ul class="list-unstyled">
+              <li>
+                <%= link_to("Frequently Asked Questions", pages_faq_path) %>
+              </li>
+              <li>
+                <a href="#!">Contact Us</a>
+              </li>
+              <li>
+                <a href="#!">Report a User</a>
+              </li>
+            </ul>
+
+          </div>
+          <!-- Grid column -->
+
+      </div>
+      <!-- Grid row -->
+
+    </div>
+    <!-- Footer Links -->
+
+  
+  </footer>
+  <!-- Footer -->
+</div><!--footer ends-->
 </html>

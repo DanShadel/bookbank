@@ -8,6 +8,9 @@ class PagesController < ApplicationController
 	def error
 	end
 
+	def faq
+	end
+
 	def account
 		#Account page for the currently logged in user
 		@user = current_user
