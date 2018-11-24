@@ -1,27 +1,37 @@
-<h1> Account page </h1>
+<div class="container-profile-page">
+<div class="row">
+	<div class="my-profile">
+	<h1> My Profile </h1>
+	</div><!--profile-->
 
+<div class="col-12">
 
+<div class="profile-page-text">
 <!--  Account page stuff -->
-<p>
+<h2>
   <strong>Username:</strong>
   <%= @user.username %>
-</p>
+</h2>
 
 
-<p>
+<h2>
   <strong>Email:</strong>
   <%= @user.email %>
-</p>
+</h2>
 
 
-<p>
+<h2>
   <strong>Username:</strong>
   <%= @user.username %>
-</p>
+</h2>
 
-<p>
+<h2>
 
 	<strong> Number of listings: </strong>
 	<%= @count %>
 	<%= link_to('Show my listings', pages_my_listings_path) %>
-</p>
+</h2>
+</div><!--profile text ends-->
+</div><!--col ends here-->
+</div><!--row ends here-->
+</div><!--container about page ends-->
