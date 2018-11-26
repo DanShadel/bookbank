@@ -8,6 +8,10 @@ class PagesController < ApplicationController
 	end
 
 	def rate
+		if !@user.score?
+			@user.score = 0
+			@user.num_reviews = 0
+		end
 
 		@user.num_reviews = @user.num_reviews + 1
 		@user.score = @user.score + params[:score].to_i
