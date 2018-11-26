@@ -3,7 +3,7 @@
   <head>
   	<link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Josefin+Sans" rel="stylesheet">
   	
-    <title>BookBank</title>
+    <title>BookPository</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -16,16 +16,9 @@
       <nav class="navbar fixed-top navbar-expand-lg navbar-background-dark">
       	<ul class="navbar-nav navbar-brand">
 
-        
-          <li class="textbook-navbar"><%= link_to "Home", root_path, class: 'navbar-brand' %></li>
-          <li class="textbook-navbar"><%= link_to 'Sell Textbook', new_textbook_path, class: 'navbar-brand' %></li>
-          <li class="textbook-navbar">
-             <%= form_tag(textbooks_path, method: :get) do %>
-              <%= text_field_tag :input, "" %>
-             <%= select_tag(:category, options_for_select([ ['Title', "title"], ['ISBN', "isbn"], ['Author', "author"], ["Subject", "subject"]], :selected => params[:category]))  %> 
-              <%= submit_tag 'Search', name: nil, :class=>"btn btn-outline-success my-2 my-sm-0" %>
-            <% end %>
-            </li><!--search-bar ends here-->
+      <li class="textbook-navbar"><%= link_to "BookPository", root_path, class: 'navbar-brand' %></li>
+      
+      <li class="textbook-navbar"><%= link_to 'Sell Textbook', new_textbook_path, class: 'navbar-brand' %></li>
  
         </ul>
         <!-- end left side -->
@@ -56,23 +49,12 @@
 
               <li class="textbook-navbar"><%= link_to('Login', new_user_session_path, class: "navbar-brand")  %></li>
               <li class="textbook-navbar"><%= link_to "Sign up", new_user_registration_path, class: "navbar-brand" %></li>
-              <% end %>
-            
-
-              
-          
-        
+              <% end %>    
      </ul>
-
-
-
-
-
 
       </div>
     </nav><!--navbar ends here-->
   </div><!--container for nav bar-->
-
 
 
   <body>
@@ -91,8 +73,7 @@
         <div class="col-md-6 mt-md-0 mt-3">
 
           <!-- Content -->
-          <h2 class="text-uppercase">BookPository</h2>
-          <p>Here you can use rows and columns here to organize your footer content.</p>
+          <h2>BookPository</h2>
 
         </div>
         <!-- Grid column -->
@@ -103,7 +84,6 @@
         <div class="col-md-3 mb-md-0 mb-3">
 
             <!-- Links -->
-            <h2 class="text-uppercase">BookPository Services</h2>
 
             <ul class="list-unstyled">
               <li>
@@ -129,8 +109,6 @@
           <div class="col-md-3 mb-md-0 mb-3">
 
             <!-- Links -->
-            <h2 class="text-uppercase">Help</h2>
-
             <ul class="list-unstyled">
               <li>
                 <%= link_to("Frequently Asked Questions", pages_faq_path) %>

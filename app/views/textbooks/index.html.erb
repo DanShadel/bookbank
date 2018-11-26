@@ -1,18 +1,31 @@
 <div class="index-background">
 
   <div class="row">
-    
-    
-    <div class="container-hero-image">
-      <div class="hero-cover">
-      </div><!--hero cover ends-->
-    </div><!--container hero image ends-->
-  </div><!--row for hero image-->  
 
-  <div class="hero-image-text"><h1> College is Stressful... We're not.</h1> 
-      <h2>We let you get the textbooks you need for way less than the retail price.</h2>
+    <div class="col-12">
 
-  </div><!--hero image text ends-->
+
+    <div class="hero-image-text"><h1> College is Stressful... We're not.</h1> 
+    <h2>We let you get the textbooks you need for way less than the retail price.</h2>
+    </div><!--hero image text ends-->
+
+    <div class="search-bar">
+        <li class="textbook-navbar">
+             <%= form_tag(textbooks_path, method: :get) do %>
+              <%= text_field_tag :input, "" %>
+             <%= select_tag(:category, options_for_select([ ['Title', "title"], ['ISBN', "isbn"], ['Author', "author"], ["Subject", "subject"]], :selected => params[:category]))  %> 
+              <%= submit_tag 'Search', name: nil, :class=>"btn btn-outline-success my-2 my-sm-0" %>
+            <% end %>
+            </li><!--search-bar ends here-->
+    </div><!--search bar-->
+
+     <div class="books-image"> 
+     </div><!--books image-->
+    </div><!--column ends here-->
+    
+  </div><!--row ends-->  
+
+
   
   <div class="container">
       <%= notice %>
@@ -22,10 +35,6 @@
 
     <div class="row">
       <div class="col-8">
-        <div class="textbooks-heading">
-          <h1>BookPository</h1>
-        </div><!--textbooks-heading ends here-->
-      </div><!--row ends here-->
       <div class="col-4">
       </div><!--col-4 ends here-->
     </div><!--row ends here-->  
@@ -38,6 +47,8 @@
           
           <div class="col-md-4 textbook-box-col">
             <div class="textbook-listing-box">
+              
+            
               <ul>
 
                   <li class="textbook-title"><h2>Title</h2><%= textbook.title %></li>

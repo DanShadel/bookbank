@@ -5,27 +5,73 @@
 @import "bootstrap";
 
 body { 
-    padding-top: 100px;
+    padding-top: 50px;
     background-image: asset_url('lined_paper_bg1.png'); 
 
+}
+
+.col-12 {
+  height: 500px;
+  background:#F8F8FF;
+  width: auto;
+  position: relative;
+  box-shadow: 5px 10px 18px #888888;
 
 }
+
+.books-image {
+  height: 250px;
+  width: auto;
+  background-image: asset_url('books.png'); 
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .container-about-page h1 {
   padding-top:50px;
 }
 
 .container-about-page h3 {
-  padding-top: 10px;
-  line-height: 20px;
-  color:#4CAF50;
+  padding-top: 50px;
+  line-height: 30px;
 }
 
-.container-hero-image {
-  height: 500px;
-  width: fill;
-  content: asset_url('hero_image_books.jpg');
-  object-fit: cover; 
+.container-about-page {
+  padding-bottom: 30px;
+}
 
+.container-profile-page {
+  padding-bottom: 30px; 
+}
+
+.show-text h1 {
+  padding-left: 20px;
+}
+
+.container-show-page {
+  padding-bottom: 30px;
+}
+
+.profile-page-text h2 {
+  padding-left: 20px;
+  padding-top: 20px;
+}
+.container-faq-page h1 {
+  padding-top:50px;
+}
+
+.container-faq-page h3 {
+  padding-top: 30px;
+  line-height: 20px;
+  font-size: 18px
+}
+
+.container-faq-page p{
+  font-size: 16px
+}
+.container-faq-page {
+  padding-bottom: 30px;
 }
 .footer {
   height: 200px;
@@ -35,21 +81,21 @@ body {
 .footer {
   color:#FFFFFF;
 }
-.hero-cover {
-  height: 500px;
-  width: fill;
-  background: #3F51B5;
-  opacity: 50%; 
-}
 
 
 .hero-image-text h1 {
-  padding-top: 25px;
+  padding-top: 50px;
+}
+
+.hero-image-text h2 {
+  padding-bottom: 25px;
+
 }
 
 .hero-image-text {
   text-align: center;
 }
+
 .textbook-listing-box ul {
 	list-style-type: none;
 	position: relative;
@@ -57,14 +103,15 @@ body {
   color: #303F9F;
 }
 
+
 .textbook-listing-box {
 	height: 400px;
 	position: relative;
-	background: #FFFFFF;
-  border-style: solid; 
-  border-color: #4CAF50;
+	background: #F8F8FF;
   border-radius: 10px;
-  border-width: 1px;
+  box-shadow: 5px 10px 18px #888888;
+  padding-top: 25px;
+
 }
 
 .index-background {
@@ -74,7 +121,7 @@ body {
 
 
 .textbook-box-col {
-	padding-top: 15px;
+	padding-top: 30px;
 	padding-bottom: 15px;
 
 }
@@ -82,7 +129,7 @@ body {
 .search-bar {
 	padding-top: 15px;
 	padding-bottom: 15px;	
-	float: right;
+  padding-left: 520px;
 }
 
 .textbooks-heading {
@@ -98,18 +145,25 @@ body {
 
 }
 
+.my-profile {
+  padding-top: 30px;
+  padding-left: 20px;
+}
+.new-textbook h1 {
+  padding-top: 30px;
+}
 
 h1 {
   font-family: 'Josefin Sans';
   color: #303F9F;
   font-weight: bold;
-  font-size: 26px;
+  font-size: 30px;
   line-height: 30px;
 
 }
 
 h2 {
-  font-family: 'Cardo';
+  font-family: 'Josefin Sans';
   color: #303F9F;
   font-weight: bold;
   font-size: 18px;
@@ -143,15 +197,19 @@ div.boolean, .simple_form input[type='submit'] {
 .navbar {
         background-color:#C4CAE9;
         background-image: none;
-        height:100px;
+        height:50px;
     }
 
 .navbar ul li a {
   color: #303F9F;
   font-family: 'Josefin Sans';
+  padding-left: 20px;
 }
 
+.page-footer h2 {
+  color:#FFFFFF;
+}
 
-.page-footer{
- 
+.page-footer ul li a {
+  color:#FFFFFF;
 }

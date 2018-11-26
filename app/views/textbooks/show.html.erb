@@ -1,4 +1,12 @@
-<div class="show-page"><div class="container">
+<div class="container-show-page">
+<div class="row"> 
+  <div class="show-text">
+  <h1>Textbook Information</h1>
+  </div><!--show text ends-->
+</div><!--row ends here-->
+<div class="col-12">
+
+  <div class="container">
 	<p id="notice"><%= notice %></p>
 
 
@@ -69,8 +77,6 @@
   
 <%end %>
 
-
-
   <!--  Only show edit button if you're the owner  -->
   <% if @textbook.user == current_user and user_signed_in? %>
 	   <%= link_to 'Edit', edit_textbook_path(@textbook) %> |
@@ -79,7 +85,8 @@
 	<%= link_to 'Back', textbooks_path %>
   <%= link_to 'Message this user', new_message_path(:recipient_id => @textbook.user) %>
 </div><!--container ends here-->
-
-</div><!--show page ends here-->
+</div><!--col ends here-->
+</div><!--row ends here-->
+</div><!--container show page ends-->
 
 
