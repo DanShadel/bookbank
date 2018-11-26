@@ -1,36 +1,83 @@
 <div class="container-profile-page">
 <div class="row">
 	<div class="my-profile">
-	<h1> My Profile </h1>
+	<h1> 
+		<%= @user.username %>'s Profile </h1>
 	</div><!--profile-->
 
 <div class="col-12">
 
-<div class="profile-page-text">
-<!--  Account page stuff -->
-<h2>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</h2>
+<div class="row">
+  <div class="col" style="text-align: center;">
+
+  <% if @user.image? %>
+    <%= image_tag @user.image.url, class: "user-show" %>
+    <br>
+  <% else %>
+  <br>
+    <div class="user-show">
+    	<strong> NO IMAGE </strong>
+    	<br>
+    	<br>
+    </div>
+  <% end %>
+  <!-- Rate a user -->
+   <%= form_tag(pages_rate_path) do %>
+  	<%= radio_button_tag 'score', '1' %> 1
+  	<%= radio_button_tag 'score', '2' %> 2
+  	<%= radio_button_tag 'score', '3' %> 3
+  	<%= radio_button_tag 'score', '4' %> 4
+  	<%= radio_button_tag 'score', '5' %> 5
+  	<%= hidden_field_tag(:user, "#{@user.id}") %>
+  	<br>
+  	<br>
+  	<%= submit_tag 'Rate User', name: nil, :class=>"btn btn-outline-success my-2 my-sm-0" %>
+  <% end %>
+  <br>
+  <%= link_to 'Report user', new_message_path(:recipient_id => 1), class: "btn btn-outline-success my-2 my-sm-0" %>
+  
+ 
+</div>
+
+<div class="col">
+
+	<div class="profile-page-text">
+	<!--  Account page stuff -->
+	<h2>
+	  <strong>Username:</strong>
+	  <%= @user.username %>
+	</h2>
 
 
-<h2>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</h2>
+	<h2>
+	  <strong>Email:</strong>
+	  <%= @user.email %>
+	</h2>
 
 
-<h2>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</h2>
+	<h2>
+	  <strong>Rating:</strong>
+	  <% if @user.score? %>
+	  	<%= number_with_precision((@user.score / @user.num_reviews), precision: 2) %>
+	  	<br>
+	  	<br>
+	  	<strong> Number of Ratings: </strong>
+	  	<%= @user.num_reviews %>
+	  <% else %>
+	  	No reviews yet!
+	  <% end %>
+	</h2>
 
-<h2>
+	<h2>
 
-	<strong> Number of listings: </strong>
-	<%= @count %>
-	<%= link_to('Show my listings', pages_my_listings_path) %>
-</h2>
+		<strong> Number of listings: </strong>
+		<%= @count %>
+		<br>
+		<br>
+		<%= link_to('Show listings', pages_my_listings_path(:user => params[:user])) %>
+	</h2>
+</div> <!-- end col -->
+</div> <!-- end row -->
 </div><!--profile text ends-->
 </div><!--col ends here-->
 </div><!--row ends here-->

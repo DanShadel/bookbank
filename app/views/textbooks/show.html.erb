@@ -1,92 +1,101 @@
 <div class="container-show-page">
-<div class="row"> 
   <div class="show-text">
   <h1>Textbook Information</h1>
   </div><!--show text ends-->
 </div><!--row ends here-->
-<div class="col-12">
 
   <div class="container">
 	<p id="notice"><%= notice %></p>
+<div class="col-12">
+
+<div class="row">
+  <div class="col" style="text-align: center;">
+
+  <% if @textbook.image? %>
+    <%= image_tag @textbook.image.url, class: "textbook-show" %>
+  <% else %>
+  <br>
+    <strong> NO IMAGE</strong>
+    <br>
+    <br>
+    <br>
+  <% end %>
+
+  <h2>
+    <br>
+    <strong>Description:</strong>
+    <%= @textbook.description %>
+  </h2>
+</div>
+
+<div class="col">
+
+
+    <!-- Display lsting info -->
+
+    <h2>
+      <strong>Title:</strong>
+      <%= @textbook.title %>
+    </h2>
+
+    <h2>
+      <strong>Edition:</strong>
+      <%= @textbook.edition %>
+    </h2>
+
+    <h2>
+      <strong>Author:</strong>
+      <%= @textbook.author %>
+    </h2>
+
+    <h2>
+      <strong>Isbn</strong>
+      <%= @textbook.isbn %>
+    </h2>
+
+    <h2>
+      <strong>Class:</strong>
+      <%= @textbook.section %>
+    </h2>
+
+    	<h2>
+    	  <strong>Condition:</strong>
+    	  <%= @textbook.condition %>
+    	</h2>
 
 
 
-<!-- Display lsting info -->
-
-<h2>
-  <strong>Title:</strong>
-  <%= @textbook.title %>
-</h2>
-
-<h2>
-  <strong>Edition:</strong>
-  <%= @textbook.edition %>
-</h2>
-
-<h2>
-  <strong>Author:</strong>
-  <%= @textbook.author %>
-</h2>
-
-<h2>
-  <strong>Isbn</strong>
-  <%= @textbook.isbn %>
-</h2>
-
-<h2>
-  <strong>Class:</strong>
-  <%= @textbook.section %>
-</h2>
-
-	<h2>
-	  <strong>Condition:</strong>
-	  <%= @textbook.condition %>
-	</h2>
-
-<h2>
-  <strong>Description:</strong>
-  <%= @textbook.description %>
-</h2>
-
-<h2>
-  <strong>Amount used:</strong>
-  <%= @textbook.amount_used %>
-</h2>
+    <h2>
+      <strong>Amount used:</strong>
+      <%= @textbook.amount_used %>
+    </h2>
 
 
-<h2>
-  <strong>Price:</strong>
-  <%= number_to_currency(@textbook.price) %>
-</h2>
+    <h2>
+      <strong>Price:</strong>
+      <%= number_to_currency(@textbook.price) %>
+    </h2>
 
 
-<h2>
-  <strong>Sold by:</strong>
-  <%= @textbook.user.username %>
-</h2>
+    <h2>
+      <strong>Sold by:</strong>
+      <%= @textbook.user.username %>
+    </h2>
 
-<h2>
-  <strong>Email:</strong>
-  <%= @textbook.user.email %>
-</h2>
-
-
-<% if @textbook.image? %>
-
-  <%= image_tag @textbook.image.url %>
-  
-<%end %>
 
   <!--  Only show edit button if you're the owner  -->
   <% if @textbook.user == current_user and user_signed_in? %>
-	   <%= link_to 'Edit', edit_textbook_path(@textbook) %> |
+	   <%= link_to 'Edit', edit_textbook_path(@textbook), class: "btn btn-outline-success my-2 my-sm-0" %>
   <% end %>
 
-	<%= link_to 'Back', textbooks_path %>
-  <%= link_to 'Message this user', new_message_path(:recipient_id => @textbook.user) %>
+	<%= link_to 'Back', textbooks_path, class: "btn btn-outline-success my-2 my-sm-0" %>
+  <%= link_to 'Message this user', new_message_path(:recipient_id => @textbook.user), class: "btn btn-outline-success my-2 my-sm-0" %>
+  <%= link_to 'View User', pages_account_path(:user => @textbook.user), class: "btn btn-outline-success my-2 my-sm-0" %>
+  <br>
+  <br>
+</div>
+</div> <!--col ends here-->
 </div><!--container ends here-->
-</div><!--col ends here-->
-</div><!--row ends here-->
 </div><!--container show page ends-->
 
 

@@ -97,7 +97,7 @@ class TextbooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def textbook_params
-      params.require(:textbook).permit(:title, :condition, :edition, :section, :isbn_10, :isbn_13, :email, :category, :price, :author, :description, :amount_used, :image)
+      params.require(:textbook).permit(:title, :condition, :edition, :section, :isbn, :email, :category, :price, :author, :description, :amount_used, :image)
     end
 
     #Checks user ownership and displays an error if you don't

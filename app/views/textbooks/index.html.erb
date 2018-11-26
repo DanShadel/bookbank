@@ -9,6 +9,7 @@
     <h2>We let you get the textbooks you need for way less than the retail price.</h2>
     </div><!--hero image text ends-->
 
+  <div class="d-flex justify-content-center">
     <div class="search-bar">
         <li class="textbook-navbar">
              <%= form_tag(textbooks_path, method: :get) do %>
@@ -18,7 +19,7 @@
             <% end %>
             </li><!--search-bar ends here-->
     </div><!--search bar-->
-
+  </div>
      <div class="books-image"> 
      </div><!--books image-->
     </div><!--column ends here-->
@@ -47,21 +48,32 @@
           
           <div class="col-md-4 textbook-box-col">
             <div class="textbook-listing-box">
-              
+                <% if textbook.image? %>
+                      <%= link_to (image_tag textbook.image.url, class: "textbook-image"), textbook  %>
+                <% else %>
+                      <div style="height: 200px; text-align: center;">
+                        <br>
+                        <br>
+                        <Strong> NO IMAGE </Strong>
+                      </div>
+                <% end %>
             
-              <ul>
 
+
+              <ul>
                   <li class="textbook-title"><h2>Title</h2><%= textbook.title %></li>
-                  <li class="textbook-isbn"><h2>ISBN-10</h2><%= textbook.isbn %></li>
+                  <li class="textbook-isbn"><h2>ISBN</h2><%= textbook.isbn %></li>
                   <li class="textbook-price"><h2>Price</h2><%= number_to_currency(textbook.price) %></li>
                   <li class="link-to-text">
-                  <%= link_to 'Show', textbook %>
+                    <br>
+                  <%= link_to 'Show', textbook, class: "btn btn-outline-success my-2 my-sm-0" %>
 
                   <!-- Only show Edit & Destroy on listings the user owns -->
-                  <% if textbook.user == current_user and user_signed_in? %>
-                    | 
-                    <%= link_to 'Edit', edit_textbook_path(textbook) %> |
-                    <%= link_to 'Destroy', textbook, method: :delete, data: { confirm: 'Are you sure?' }%>
+                  <% if textbook.user == current_user and user_signed_in? %> 
+                    <%= link_to 'Edit', edit_textbook_path(textbook), class: "btn btn-outline-success my-2 my-sm-0" %> 
+                    <%= link_to 'Delete', textbook, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-success my-2 my-sm-0"%>
+                  <% else%>
+                  <%= link_to 'Send Message', new_message_path(:recipient_id => textbook.user), class: "btn btn-outline-success my-2 my-sm-0"  %>
                   <% end %>
                   </li>
                </ul>
