@@ -57,7 +57,7 @@
 
 	<h2>
 	  <strong>Rating:</strong>
-	  <% if @user.score? %>
+	  <% if @user.score != 0 %>
 	  	<%= number_with_precision((@user.score / @user.num_reviews), precision: 2) %>
 	  	<br>
 	  	<br>
