@@ -20,22 +20,17 @@ body {
 
 }
 
-.books-image {
-  height: 250px;
-  width: auto;
-  background-image: asset_url('books.png'); 
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
 .container-about-page h1 {
   padding-top:50px;
+  padding-left: 30px;
 }
 
 .container-about-page h3 {
   padding-top: 50px;
-  line-height: 30px;
+  line-height: 50px;
+  font-family: 'open sans';
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 .container-about-page {
@@ -98,6 +93,13 @@ body {
   text-align: center;
 }
 
+.hero-image {
+  height: 500px;
+  width: auto;
+  background-image: asset_url('students.jpg');
+  background-size: contain;
+  opacity: .5;
+}
 img.user-show{
   padding-top: 10px;
   width: 300px;
