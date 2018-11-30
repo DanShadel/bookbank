@@ -5,26 +5,27 @@
     <div class="col-12">
 
     <div class="hero-image">
-    <div class="hero-image-container">
+      <div class="hero-image-overlay">
+            <div class="hero-image-container">
     <div class="hero-image-text"><h1> College is Stressful... We're not.</h1> 
     <h2>We let you get the textbooks you need for way less than the retail price.</h2>
     </div><!--hero image text ends-->
-  <
+  
 
 
   <div class="d-flex justify-content-center">
     <div class="search-bar">
-        <li class="textbook-navbar">
+        <li class="textbook-navbar" style="display:flex;">
              <%= form_tag(textbooks_path, method: :get) do %>
               <%= text_field_tag :input, "" %>
              <%= select_tag(:category, options_for_select([ ['Title', "title"], ['ISBN', "isbn"], ['Author', "author"], ["Subject", "subject"]], :selected => params[:category]))  %> 
-              <%= submit_tag 'Search', name: nil, :class=>"btn btn-outline-success my-2 my-sm-0" %>
+              <%= submit_tag 'Search', name: nil, :class=>"btn btn-primary" %>
             <% end %>
             </li><!--search-bar ends here-->
     </div><!--search bar-->
     </div><!--hero image ends-->
   </div><!--hero image container-->
-     
+      </div><!--/overlay0-->
     </div><!--column ends here-->
     
   </div><!--row ends-->  
@@ -51,6 +52,9 @@
           
           <div class="col-md-4 textbook-box-col">
             <div class="textbook-listing-box">
+              <div class="card-title">
+                <p><%= textbook.title %></p>
+              </div>
                 <% if textbook.image? %>
                       <%= link_to (image_tag textbook.image.url, class: "textbook-image"), textbook  %>
                 <% else %>
@@ -61,13 +65,16 @@
                       </div>
                 <% end %>
             
-
+            <br>
 
               <ul>
-                  <li class="textbook-title"><h2>Title</h2><%= textbook.title %></li>
-                  <li class="textbook-isbn"><h2>ISBN</h2><%= textbook.isbn %></li>
-                  <li class="textbook-price"><h2>Price</h2><%= number_to_currency(textbook.price) %></li>
-                  <li class="link-to-text">
+                   
+                    
+                    <li class="textbook-price"><h1><%= number_to_currency(textbook.price) %></h1></li>
+                    <li>Compare with: $24 at Amazon.com</li>
+                  <br>
+                                    <li class="textbook-isbn"><h3>ISBN:</h3><%= textbook.isbn %></li>
+
                     <br>
                   <%= link_to 'Show', textbook, class: "btn btn-outline-success my-2 my-sm-0" %>
 
@@ -79,7 +86,8 @@
                   <%= link_to 'Send Message', new_message_path(:recipient_id => textbook.user), class: "btn btn-outline-success my-2 my-sm-0"  %>
                   <% end %>
                   </li>
-               </ul>
+                           </ul>
+
             </div><!--textbook-listing-box ends here-->
           </div><!--col-md-4 ends here-->
         <% end %>

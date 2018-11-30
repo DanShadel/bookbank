@@ -2,7 +2,6 @@
   <div class="show-text">
   <h1>Textbook Information</h1>
   </div><!--show text ends-->
-</div><!--row ends here-->
 
   <div class="container">
 	<p id="notice"><%= notice %></p>
@@ -21,11 +20,7 @@
     <br>
   <% end %>
 
-  <h2>
-    <br>
-    <strong>Description:</strong>
-    <%= @textbook.description %>
-  </h2>
+ 
 </div>
 
 <div class="col">
@@ -33,18 +28,17 @@
 
     <!-- Display lsting info -->
 
-    <h2>
-      <strong>Title:</strong>
+    <h2 style="font-weight: 700 !important;">
       <%= @textbook.title %>
     </h2>
+	<br>
 
     <h2>
-      <strong>Author:</strong>
-      <%= @textbook.author %>
+      <strong>Author(s):</strong> <%= @textbook.author %>
     </h2>
 
     <h2>
-      <strong>Isbn</strong>
+      <strong>ISBN</strong>
       <%= @textbook.isbn %>
     </h2>
 
@@ -76,8 +70,14 @@
       <strong>Sold by:</strong>
       <%= @textbook.user.username %>
     </h2>
-
-
+	 <h2>
+    <br>
+    <strong>Description:</strong>
+  </h2>
+	<p>
+		<%= @textbook.description %>
+	</p>
+	<br>
   <!--  Only show edit button if you're the owner  -->
   <% if @textbook.user == current_user and user_signed_in? %>
 	   <%= link_to 'Edit', edit_textbook_path(@textbook), class: "btn btn-outline-success my-2 my-sm-0" %>

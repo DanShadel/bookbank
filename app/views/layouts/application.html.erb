@@ -18,7 +18,7 @@
 
       <li class="textbook-navbar"><%= link_to "BookPository", root_path, class: 'navbar-brand' %></li>
       
-      <li class="textbook-navbar"><%= link_to 'Sell Textbook', new_textbook_path, class: 'navbar-brand' %></li>
+     
  
         </ul>
         <!-- end left side -->
@@ -34,6 +34,7 @@
 
               <!-- if the user is signed in -->
               <% if user_signed_in? %>
+           <li class="textbook-navbar"><%= link_to 'Sell Textbook', new_textbook_path, class: 'navbar-brand btn btn-primary' %></li>
                <li class="nav-item dropdown">
                   <a class="nav-link dropdown toggle" href="#" id ="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Account
                   </a>
