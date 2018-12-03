@@ -11,6 +11,7 @@
   </head>
 
 
+
     <div class="container">
       <!-- -->
       <nav class="navbar fixed-top navbar-expand-lg navbar-background-dark">
@@ -58,9 +59,11 @@
   </div><!--container for nav bar-->
 
 
-  <body>
+  <body class="Site">
+    <main class="Site-content">
     <%= yield %>
-  </body>
+  </main>
+
   <div class="footer">
 <footer class="page-footer font-small blue pt-4">
 
@@ -135,4 +138,6 @@
   </footer>
   <!-- Footer -->
 </div><!--footer ends-->
+
+</body>
 </html>

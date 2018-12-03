@@ -249,3 +249,12 @@ div.boolean, .simple_form input[type='submit'] {
 .page-footer ul li a {
   color:#FFFFFF;
 }
+.Site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.Site-content {
+  flex: 1;
+}
