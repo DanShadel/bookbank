@@ -145,7 +145,7 @@ color: white;
 .hero-image {
   height: 500px;
   width: 100%;
-  background-image: asset_url('students.jpg');
+  background-image: asset_url("students.jpg");
   background-size: cover;
 	background-position: center top;
 	margin-top: -50px;
@@ -224,9 +224,6 @@ img.textbook-image{
 
 }
 
-.search-bar {
-
-}
 
 .textbooks-heading {
 	padding-top: 50px;
@@ -247,6 +244,11 @@ img.textbook-image{
 }
 .new-textbook h1 {
   padding-top: 30px;
+}
+
+.messages-page {
+  padding-top: 30px;
+
 }
 
 h1 {
