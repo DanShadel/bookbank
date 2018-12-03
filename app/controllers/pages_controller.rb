@@ -7,6 +7,9 @@ class PagesController < ApplicationController
 	def error
 	end
 
+	def landing
+	end
+	
 	def rate
 		if !@user.score?
 			@user.score = 0
