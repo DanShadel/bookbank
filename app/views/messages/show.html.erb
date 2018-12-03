@@ -8,22 +8,24 @@
 
 	<div class="message-container">
 			<p>
-			  <strong>Content:</strong>
+			  <strong>Message:</strong>
 			  <%= message.content %>
 			</p>
 
 			<p>
-			  <strong>Owner:</strong>
+			  <strong>From:</strong>
 			  <%= message.owner.username %>
 			</p>
 
 			<p>
-			  <strong>Recipient:</strong>
+			  <strong>To:</strong>
 			  <%= message.recipient.username %>
 			</p>
 		</div>
+		----------------------------------
+		<br>
 
 <% end %>
-<%= link_to 'Back', messages_path %> |
-<%= link_to 'Reply', messages_reply_path(:parent => @message.id, :recipient_id => @message.owner_id)%>
+<%= link_to 'Back', messages_path, class: "btn btn-primary" %> |
+<%= link_to 'Reply', messages_reply_path(:parent => @message.id, :recipient_id => @message.owner_id), class: "btn btn-primary"%>
 </div>
