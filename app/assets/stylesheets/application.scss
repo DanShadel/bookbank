@@ -4,38 +4,61 @@
  */
 @import "bootstrap";
 
-
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,800');
 
 body { 
-    padding-top: 50px;
-    background-image: asset_url('lined_paper_bg1.png'); 
+		background: #f2f2f2;
+	margin-top: 50px;
+}
+.btn-primary {
+	//background: #303F9F !important;
+	background-image: linear-gradient(to right bottom, #303f9f, #4141a2, #4f43a5, #5d44a8, #6946aa) !important;
+
+	color: white !important;
+	border: #303F9F !important;
+	font-size: 16px;
 }
 
+.btn-outline-success {
+	border: 1px solid #303F9F !important;
+	color: #303F9F !important;
+	font-size: 13px;
+}
+.btn-outline-success:hover {
+	background: #303F9F !important;
+	color: white !important;
+}
+.card-title {
+	background-image: linear-gradient(to right bottom, #303f9f, #4141a2, #4f43a5, #5d44a8, #6946aa) !important;
+	padding: 5px;
+	color: white;
+	height: 50px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	text-align: center;
+}
 .col-12 {
-  height: 500px;
-  background:#F8F8FF;
+ 	min-height: 500px;
   width: auto;
   position: relative;
-  box-shadow: 5px 10px 18px #888888;
+	padding-top: 20px;
+	padding-bottom: 20px;
 
 }
-
-.books-image {
-  height: 250px;
-  width: auto;
-  background-image: asset_url('books.png'); 
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+.container-show-page h2, .profile-page-text h2 {
+	font-weight: 400 !important;
 }
-
 .container-about-page h1 {
   padding-top:50px;
+  padding-left: 30px;
 }
 
 .container-about-page h3 {
   padding-top: 50px;
-  line-height: 30px;
+  line-height: 50px;
+  font-family: 'open sans';
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 .container-about-page {
@@ -53,6 +76,7 @@ body {
 
 .container-show-page {
   padding-bottom: 30px;
+	padding-top: 30px;
 }
 
 .profile-page-text h2 {
@@ -76,28 +100,58 @@ body {
   padding-bottom: 30px;
 }
 .footer {
-  height: 200px;
-  background: #303F9F;
+  min-height: 300px;
+ background-image: linear-gradient(to right bottom, #303f9f, #4141a2, #4f43a5, #5d44a8, #6946aa);
 }
 
 .footer {
   color:#FFFFFF;
 }
-
-
+.hero-image-overlay {
+	background: rgba(0,0,0, 0.2);
+	height: 500px;
+}
+.hero-image-container {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	height: 500px;
+	width: 38%;
+	margin-left: 100px;
+}
 .hero-image-text h1 {
-  padding-top: 50px;
+	color: white;
+	font-weight: 800;
+	font-family: 'Open Sans';
+	font-size: 40px;
+	line-height: 50px;
 }
 
 .hero-image-text h2 {
   padding-bottom: 25px;
-
+color: white;
+	font-family: 'Open Sans';
+	font-weight: 300;
+	margin-top: 40px;
+	
 }
 
 .hero-image-text {
-  text-align: center;
+  text-align: left;
+	color: white;
 }
 
+.hero-image {
+  height: 500px;
+  width: 100%;
+  background-image: asset_url('students.jpg');
+  background-size: cover;
+	background-position: center top;
+	margin-top: -50px;
+	
+ 
+}
 img.user-show{
   padding-top: 10px;
   width: 300px;
@@ -138,16 +192,22 @@ img.textbook-image{
 	list-style-type: none;
 	position: relative;
 	bottom: 0;
-  color: #303F9F;
+  color: #2d2d2d;
+	text-align:center;
+	padding-left: 0;
+
+}
+.textbook-listing-box li {
+	text-align:center;
 }
 
-
 .textbook-listing-box {
-	height: 400px;
+	min-height: 450px;
 	position: relative;
-	background: #F8F8FF;
+	background: white;
   border-radius: 10px;
   box-shadow: 5px 10px 18px #888888;
+	padding-bottom: 10px;
   
 
 }
@@ -190,8 +250,8 @@ img.textbook-image{
 }
 
 h1 {
-  font-family: 'Josefin Sans';
-  color: #303F9F;
+  font-family: 'Open Sans';
+  color: #2d2d2d;
   font-weight: bold;
   font-size: 30px;
   line-height: 30px;
@@ -199,8 +259,8 @@ h1 {
 }
 
 h2 {
-  font-family: 'Josefin Sans';
-  color: #303F9F;
+  font-family: 'Open Sans';
+  color: #2d2d2d;
   font-weight: bold;
   font-size: 18px;
   line-height: 20px;
@@ -208,8 +268,8 @@ h2 {
 }
 
 h3 {
-  font-family: 'Josefin Sans';
-  color: #303F9F;
+  font-family: 'Open Sans';
+  color: #2d2d2d;
   font-weight: bold;
   font-size: 16px;
   line-height: 18px;
@@ -231,15 +291,17 @@ div.boolean, .simple_form input[type='submit'] {
 }
 
 .navbar {
-        background-color:#C4CAE9;
+        background-color:white;
         background-image: none;
         height:50px;
     }
 
 .navbar ul li a {
-  color: #303F9F;
-  font-family: 'Josefin Sans';
-  padding-left: 20px;
+  color: #2d2d2d;
+  font-family: 'Open Sans';
+  padding-right: 10px;
+	padding-left: 10px;
+	font-size: 14px;
 }
 
 .page-footer h2 {

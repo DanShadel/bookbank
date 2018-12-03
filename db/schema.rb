@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20181126042728) do
     t.string "location"
     t.string "amount_used"
     t.integer "user_id"
+    t.string "edition"
     t.string "section"
     t.string "image"
     t.string "subject"
