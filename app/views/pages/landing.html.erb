@@ -1,1 +1,33 @@
-landing page wow
+<div class="index-background">
+
+  <div class="row">
+
+    <div class="col-12">
+
+    <div class="hero-image">
+      <div class="hero-image-overlay">
+            <div class="hero-image-container">
+    <div class="hero-image-text"><h1> College is Stressful... We're not.</h1> 
+    <h2>We let you get the textbooks you need for way less than the retail price.</h2>
+    </div><!--hero image text ends-->
+  
+
+
+
+  <div class="d-flex justify-content-center">
+    <div class="search-bar">
+        <li class="textbook-navbar" style="display:flex;">
+             <%= form_tag(textbooks_path, method: :get) do %>
+              <%= text_field_tag :input, "" %>
+             <%= select_tag(:category, options_for_select([ ['Title', "title"], ['ISBN', "isbn"], ['Author', "author"], ["Subject", "subject"]], :selected => params[:category]))  %> 
+              <%= submit_tag 'Search', name: nil, :class=>"btn btn-primary" %>
+            <% end %>
+            </li><!--search-bar ends here-->
+    </div><!--search bar-->
+    </div><!--hero image ends-->
+  </div><!--hero image container-->
+      </div><!--/overlay0-->
+    </div><!--column ends here-->
+    
+  </div><!--row ends-->  
+

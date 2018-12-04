@@ -28,11 +28,6 @@
         <!-- begin right side -->
         <ul class="navbar-nav ml-auto">
 
-          <li class="textbook-navbar">
-            <%= link_to 'About us', pages_about_path, class: 'navbar-brand' %>
-          </li>
-
-
               <!-- if the user is signed in -->
               <% if user_signed_in? %>
            <li class="textbook-navbar"><%= link_to 'Sell Textbook', new_textbook_path, class: 'navbar-brand btn btn-primary' %></li>
@@ -41,8 +36,8 @@
                   </a>
                   <div>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                      <%= link_to('Inbox', messages_path,class:"dropdown-item") %>
                       <%= link_to('My Account', pages_account_path(:user => current_user),class:"dropdown-item") %>
+                      <%= link_to('Inbox', messages_path,class:"dropdown-item") %>
                       <%= link_to('Logout', destroy_user_session_path, method: :delete, class:"dropdown-item") %> 
                      
                       </div>
@@ -92,13 +87,13 @@
 
             <ul class="list-unstyled">
               <li>
-                <%= link_to("Buy Textbooks", root_path) %>
+                <%= link_to("Buy Textbooks", textbooks_path) %>
               </li>
               <li>
                 <%= link_to("Sell a Textbook", new_textbook_path ) %>
               </li>
               <% if user_signed_in? %>
-              <li> <%= link_to('My Account', pages_account_path)  %> </li>
+              <li> <%= link_to('My Account', pages_account_path(:user => current_user))  %> </li>
               <li> <%= link_to('My Inbox', messages_path) %> </li>
               <% else %>
               <li> <%= link_to('Login', new_user_session_path)  %> </li>

@@ -1,6 +1,25 @@
 <div class="container">
-<h1>New Message</h1>
 <p id="notice"><%= notice %></p>
+<h1><%= @message.recipient.username %></h1>
+
+
+<% @history.each do |history| %>
+	
+	
+	<% if history.recipient == current_user %>
+		<div class="recieved-message">
+	<% else %>
+		<div class="sent-message">
+	<% end %>
+
+
+		<%= history.content %>
+	</div>
+
+
+<% end %>
+
+
 <%= render 'form', message: @message, class: "btn btn-primary" %>
 
 </div>
