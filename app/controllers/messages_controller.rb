@@ -1,40 +1,30 @@
 class MessagesController < ApplicationController
   #make sure users are logged in when doing these actions
   before_action :authenticate_user!, only: [:new, :destroy]
-  before_action :set_message, only: [:show, :edit, :update, :destroy]
+  before_action :set_message, only: [:edit, :update, :destroy]
 
   # GET /messages
   # GET /messages.json
 
   #Default to recieved mail
   def index
+
     @messages = Message.where(recipient: current_user)
+    @unique_users = Message.where(recipient: current_user).select(:owner_id).distinct
   end
 
   # GET /messages/1
   # GET /messages/1.json
   def show
 
-    if(@message.recipient == current_user)
-      @message.read = true
-      Message.update(@message.id, :read => true)
-    end
-
-    @messages = []
-    parent = @message
-    @messages.push(parent)
-  
-
-    while parent.parent_id != 0  and parent.parent_id != nil
-
-      parent = Message.find(parent.parent_id)
-      @messages.push(parent)
-
-    end
   end
 
   def reply
+
+     @history = Message.where(recipient: current_user, owner: params[:owner]).or(owner: User.find(current_user.id))
     @message = Message.new
+    @message.recipient = User.find(params[:owner])
+    @message.owner = current_user
     render 'new'
 
   end
@@ -46,6 +36,10 @@ class MessagesController < ApplicationController
 
   # GET /messages/new
   def new
+
+   # @history = Message.where(recipient: current_user, owner: params[:owner]).or(recipient: User.find(params[:owner]), owner: current_user)
+    @message.recipient = User.find(params[:owner])
+    @message.owner = current_user
     @message = Message.new
 
   end
@@ -59,8 +53,8 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.save
-        format.html { redirect_to @message, notice: 'Message was successfully created.' }
-        format.json { render :show, status: :created, location: @message }
+        format.html { redirect_to :reply, notice: 'Message was successfully created.' }
+        format.json { render :reply, status: :created, location: @message }
       else
         format.html { render :new }
         format.json { render json: @message.errors, status: :unprocessable_entity }

@@ -22,9 +22,10 @@
   <%= f.input :isbn, label: "ISBN", hint: "ISBN (International Standard Book Number) is a numerical way to identify books", required: true %>
   <%= f.input :price, required: true%>
   <%= f.input :description, required: true%>
-  <%= f.input :amount_used, as: :radio_buttons, collection: ['Unknown', 'A little', 'Some', 'A lot'], required: true %>
+  <%= f.input :amount_used, label: "How much did you use this book?", as: :radio_buttons, collection: ['Unknown', 'A little', 'Some', 'A lot'], required: true %>
 
-
+  Upload a picture
+  <br>
   <% if @textbook.image? %>
 
       <%= image_tag @textbook.image.url %>
@@ -32,8 +33,9 @@
 
       <%= f.check_box :remove_image %>
   <% end %>
-
   <%= f.file_field :image %>
+  <br>
+  <br>
   <%= f.button :submit %>
   
 <% end %>
