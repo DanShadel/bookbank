@@ -52,6 +52,9 @@ class TextbooksController < ApplicationController
   def create
     @textbook = Textbook.new(textbook_params)
     @textbook.user = current_user
+    if @textbook.price >= 10000
+        @textbook.price = 10000
+    end
     respond_to do |format|
       if @textbook.save
         format.html { redirect_to @textbook, notice: 'Textbook was successfully created.' }
@@ -66,8 +69,12 @@ class TextbooksController < ApplicationController
   # PATCH/PUT /textbooks/1
   # PATCH/PUT /textbooks/1.json
   def update
+ 
     respond_to do |format|
       if @textbook.update(textbook_params)
+          if @textbook.price >= 10000
+            @textbook.update(price: 10000)
+          end
         format.html { redirect_to @textbook, notice: 'Textbook was successfully updated.' }
         format.json { render :show, status: :ok, location: @textbook }
       else
