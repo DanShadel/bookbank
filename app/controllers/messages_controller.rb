@@ -21,7 +21,25 @@ class MessagesController < ApplicationController
 
   def reply
 
-     @history = Message.where(recipient: current_user, owner: params[:owner]).or(owner: User.find(current_user.id))
+    #get messages in order
+    @sent = Message.where(recipient: params[:owner], owner: current_user)
+    @recieved = Message.where(recipient: current_user, owner: params[:owner])
+    @numsent = 0
+    @numrecieved = 0
+    @history = []
+
+    while @numsent < @sent.count and @numrecieved < @recieved.count
+
+      if @recieved[@numrecieved].created_at > @sent[@numsent].created_at
+        @history.push(@sent[@numsent])
+        @numsent = @numsent + 1
+      else
+        @history.push(@recieved[@numrecieved])
+        @numrecieved = @numrecieved + 1
+      end
+    end
+
+
     @message = Message.new
     @message.recipient = User.find(params[:owner])
     @message.owner = current_user
@@ -53,7 +71,7 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.save
-        format.html { redirect_to :reply, notice: 'Message was successfully created.' }
+        format.html { redirect_to messages_reply_path(:owner => @message.owner) }
         format.json { render :reply, status: :created, location: @message }
       else
         format.html { render :new }

@@ -8,8 +8,10 @@
 	
 	<% if history.recipient == current_user %>
 		<div class="recieved-message">
+			<%=  "From #{@message.owner.username}:" %>
 	<% else %>
 		<div class="sent-message">
+			<%= "To #{@message.recipient.username}:" %>
 	<% end %>
 
 
