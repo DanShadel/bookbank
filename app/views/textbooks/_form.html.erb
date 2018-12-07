@@ -20,9 +20,14 @@
   <%= f.input :section, label: "Class", required: true%>
   <%= f.input :condition, as: :radio_buttons, collection: ["New", "Good", "Okay", "Bad"], required: true %>
   <%= f.input :isbn, label: "ISBN", hint: "ISBN (International Standard Book Number) is a numerical way to identify books", required: true %>
+
   <%= f.input :price, required: true%>
   <%= f.input :description, required: true%>
+  Is this texbook rentable? 
+  <%= f.check_box :rentable %>
+  <br>
   <%= f.input :amount_used, label: "How much did you use this book?", as: :radio_buttons, collection: ['Unknown', 'A little', 'Some', 'A lot'], required: true %>
+
 
   Upload a picture
   <br>
