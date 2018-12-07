@@ -6,18 +6,30 @@
 
 <% @history.each do |history| %>
 	
+
+		<% if history.recipient == current_user %>
+			<div class="row justify-content-start">
 	
-	<% if history.recipient == current_user %>
-		<div class="recieved-message">
-			<%=  "From #{@message.owner.username}:" %>
-	<% else %>
-		<div class="sent-message">
-			<%= "To #{@message.recipient.username}:" %>
-	<% end %>
+				<div class="col-md-4">
+					<div class="recieved-message">
+						<%= history.content %>
+					</div> <!-- end message -->
+				</div> <!-- end col -->
+			</div> <!-- end row -->
 
+		<% else %>
+			<div class="row justify-content-end">
+		
+				<div class="col-md-4">
+					<div class="sent-message">
+						<%= history.content %>
+					</div>
+				</div> <!-- end col -->
+			</div> <!-- end row -->
 
-		<%= history.content %>
-	</div>
+		<% end %>
+		
+
 
 
 <% end %>
