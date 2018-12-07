@@ -319,3 +319,11 @@ div.boolean, .simple_form input[type='submit'] {
 .Site-content {
   flex: 1;
 }
+.recieved-messages{
+  color: white !important;
+  border: #303F9F !important;
+  font-size: 16px;
+}
+.sent-messages{
+  display: flex;
+}
