@@ -11,13 +11,17 @@
   </head>
 
 
-
     <div class="container">
       <!-- -->
       <nav class="navbar fixed-top navbar-expand-lg navbar-background-dark">
       	<ul class="navbar-nav navbar-brand">
 
-      <li class="textbook-navbar"><%= link_to "BookPository", root_path, class: 'navbar-brand' %></li>
+      <li class="textbook-navbar"><%= link_to root_path do %>
+          <%= image_tag asset_path ( "BookPositoryLogo.png") %>
+
+          <% end %>
+
+      </li>
       
      
  

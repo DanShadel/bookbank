@@ -1,33 +1,47 @@
 <p id="notice"><%= notice %></p>
 
 
-<%= link_to 'Inbox', messages_path %>
 
 
+<div class="container">
 
-<h1>Sent mail </h1>
+  <div class="sent-mail">
 
-<table>
-  <thead>
-    <tr>
+<h1>Sent Mail </h1>
 
-      <th>To</th>
-      <th>Content</th>
+<%= link_to 'Inbox', messages_path, class: "btn btn-primary" %>
 
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="row">
+      <div class="col-md-4">
+      <h2>To</h2>
+    </div><!--col 4 ends-->
+
+    <div class="col-md-8">
+      <h2>Content</h2>
+    </div><!--col 8 ends--> 
+
+  </div><!--row ends-->
+      
 
   <tbody>
     <% @messages.reverse.each do |message| %>
-      <tr>
-        <td><%= message.recipient.username%></td>
-        <td><%= message.content %></td>
-        <td><%= link_to 'Show', message %></td>
-      </tr>
+
+    <div class="row">
+          <div class="col-md-4">
+          <%= message.recipient.username %>
+        </div>
+
+        
+            <div class="col-md-8">
+            <%= message.content %>
+            <%= link_to 'Show', message, class: "btn btn-primary" %>
+          </div>
+        </div><!--row ends-->
     <% end %>
-  </tbody>
-</table>
+  
+
+</div><!--sent mail-->
+</div><!--container closes-->
 
 <br>
 
