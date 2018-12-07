@@ -145,7 +145,7 @@ color: white;
 .hero-image {
   height: 500px;
   width: 100%;
-  background-image: asset_url("students.jpg");
+  background-image: asset_url('students.jpg');
   background-size: cover;
 	background-position: center top;
 	margin-top: -50px;
@@ -319,11 +319,27 @@ div.boolean, .simple_form input[type='submit'] {
 .Site-content {
   flex: 1;
 }
-.recieved-messages{
-  color: white !important;
-  border: #303F9F !important;
+.recieved-message{
+  padding-left: 10px;
+  padding-top: 2px;
+  padding-right: 2px;
+  margin-bottom: 2px;
+  color: white;
+  text-align: left;
+  border: #303F9F;
+  background-color:#303F9F;
   font-size: 16px;
+  border-radius: 15px;
 }
-.sent-messages{
-  display: flex;
+.sent-message{
+  padding-left: 10px;
+  padding-top: 2px;
+  padding-right: 2px;
+  margin-bottom: 2px;
+  border-color: #333333;
+  color: #333333;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 15px;
 }
+

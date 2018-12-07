@@ -71,7 +71,7 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.save
-        format.html { redirect_to messages_reply_path(:owner => @message.owner) }
+        format.html { redirect_to messages_reply_path(:owner => @message.recipient) }
         format.json { render :reply, status: :created, location: @message }
       else
         format.html { render :new }
