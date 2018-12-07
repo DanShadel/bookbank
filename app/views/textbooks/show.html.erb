@@ -77,6 +77,14 @@
 	<p>
 		<%= @textbook.description %>
 	</p>
+
+  <h2> <strong>Available to rent:</strong>
+  <% if @textbook.rentable %>
+      Yes
+  <% else %>
+      No
+  <% end %>
+</h2>
 	<br>
   <!--  Only show edit button if you're the owner  -->
   <% if @textbook.user == current_user and user_signed_in? %>

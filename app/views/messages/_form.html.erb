@@ -21,13 +21,13 @@
       <%= f.hidden_field :parent_id, :value => 0 %>
     <% end %>
 
-    <%= f.hidden_field :recipient_id, :value => params[:recipient_id] %>
+    <%= f.hidden_field :recipient_id, :value => params[:owner] %>
     <%= f.input :content %>
 
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, class: "btn btn-primary" %>
+    <%= f.button :submit, 'Send', class: "btn btn-primary" %>
   </div>
 <% end %>
 </div>

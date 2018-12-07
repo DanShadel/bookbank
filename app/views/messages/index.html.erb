@@ -20,25 +20,34 @@
     </div>
      </div><!--row ends-->
     
+    
 
 
-    <% @messages.reverse.each do |message| %>
+
+    <% @unique_users.each do |message| %>
      
-      <div class="row">
-          <div class="col-md-4">
-          <%= message.owner.username %>
-        </div>
+    <div class="row">
+      <div class="col-md-4">
+        <%= message.owner.username %>
+      </div>
 
-        
-            <div class="col-md-8">
-            <%= message.content %>
-            <%= link_to 'Show', message, class: "btn btn-primary" %>
-          </div>
-        </div><!--row ends-->
-        
+      <div class="col-md-8">
+        <%= link_to 'Chat!', messages_reply_path(:owner => message.owner), class: "btn btn-primary"  %>
+      </div>
+    </div><!--row ends-->
+    
+    
+    
 
-        
     <% end %>
+
+
+
+
+
+
+
+
   </tbody>
 </table>
 </div><!--messages page ends-->
