@@ -158,8 +158,15 @@ color: white;
   background-size: cover;
 	background-position: center top;
 	margin-top: -50px;
-	
- 
+}
+
+.hero-image-landing {
+  height: 500px;
+  width: 100%;
+  background-image: asset_url('bookcase.jpg');
+  background-size: cover;
+  background-position: center top;
+  margin-top: -50px;
 }
 img.user-show{
   padding-top: 10px;
