@@ -21,6 +21,7 @@
               <%= text_field_tag :input, "" %>
              <%= select_tag(:category, options_for_select([ ['Title', "title"], ['ISBN', "isbn"], ['Author', "author"], ["Subject", "subject"]], :selected => params[:category]))  %> 
               <%= submit_tag 'Search', name: nil, :class=>"btn btn-primary" %>
+              <%= link_to 'View textbooks', textbooks_path, class: "btn btn-primary" %>
             <% end %>
             </li><!--search-bar ends here-->
     </div><!--search bar-->

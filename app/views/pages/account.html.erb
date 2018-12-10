@@ -34,7 +34,7 @@
   	<%= submit_tag 'Rate User', name: nil, :class=>"btn btn-outline-success my-2 my-sm-0" %>
   <% end %>
   <br>
-  <%= link_to 'Report user', new_message_path(:recipient_id => 1), class: "btn btn-outline-success my-2 my-sm-0" %>
+  <%= link_to 'Report user', messages_reply_path(:owner => 1), class: "btn btn-outline-success my-2 my-sm-0" %>
   
  
 </div>

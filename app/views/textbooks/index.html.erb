@@ -21,6 +21,7 @@
               <%= text_field_tag :input, "" %>
              <%= select_tag(:category, options_for_select([ ['Title', "title"], ['ISBN', "isbn"], ['Author', "author"], ["Subject", "subject"]], :selected => params[:category]))  %> 
               <%= submit_tag 'Search', name: nil, :class=>"btn btn-primary" %>
+              <%= link_to 'View textbooks', textbooks_path, class: "btn btn-primary" %>
             <% end %>
             </li><!--search-bar ends here-->
     </div><!--search bar-->
@@ -53,7 +54,12 @@
           
           <div class="col-md-4 textbook-box-col">
             <div class="textbook-listing-box">
-              <div class="card-title">
+              <div class="card-title" style="position: relative;">
+                <% if textbook.rentable? %>
+                  <div class="riboon" style="background:    #33cc33; color: white; position: absolute; right: 0; height: 50px; transform: translateX(45deg); -webkit-transform: translateX(45deg); display: flex; align-items: center; justify-content: center; padding-left: 5px; padding-right: 5px; width: 100px; top: 0">
+                      Rent Me!
+                  </div><!--ribbon-->
+                <% end %>
                 <p><%= textbook.title %></p>
               </div>
                 <% if textbook.image? %>

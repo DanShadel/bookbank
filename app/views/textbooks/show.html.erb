@@ -64,7 +64,12 @@
       <strong>Price:</strong>
       <%= number_to_currency(@textbook.price) %>
     </h2>
-
+      <h2> <strong>Available to rent:</strong>
+      <% if @textbook.rentable %>
+          Yes
+      <% else %>
+          No
+      <% end %>
 
     <h2>
       <strong>Sold by:</strong>
@@ -78,12 +83,7 @@
 		<%= @textbook.description %>
 	</p>
 
-  <h2> <strong>Available to rent:</strong>
-  <% if @textbook.rentable %>
-      Yes
-  <% else %>
-      No
-  <% end %>
+  
 </h2>
 	<br>
   <!--  Only show edit button if you're the owner  -->
@@ -92,7 +92,7 @@
   <% end %>
 
 	<%= link_to 'Back', textbooks_path, class: "btn btn-outline-success my-2 my-sm-0" %>
-  <%= link_to 'Message this user', new_message_path(:recipient_id => @textbook.user), class: "btn btn-outline-success my-2 my-sm-0" %>
+  <%= link_to 'Message this user', messages_reply_path(:owner => @textbook.user), class: "btn btn-outline-success my-2 my-sm-0" %>
   <%= link_to 'View User', pages_account_path(:user => @textbook.user), class: "btn btn-outline-success my-2 my-sm-0" %>
   <br>
   <br>

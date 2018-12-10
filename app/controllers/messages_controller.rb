@@ -10,6 +10,7 @@ class MessagesController < ApplicationController
   def index
 
     @messages = Message.where(recipient: current_user)
+    @sent = Message.where(owner: current_user)
     @unique_users = Message.where(recipient: current_user).select(:owner_id).distinct
   end
 
