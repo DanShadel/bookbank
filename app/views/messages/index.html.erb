@@ -35,6 +35,8 @@
 
         <div class="col-md-8">
           <%= link_to 'Chat!', messages_reply_path(:owner =>  user.id), class: "btn btn-primary"  %>
+
+          <%= link_to 'View Profile', pages_account_path(:user =>  user), class: "btn btn-primary"  %>
         </div>
 
     </div><!--row ends-->
