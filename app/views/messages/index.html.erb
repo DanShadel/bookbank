@@ -21,37 +21,21 @@
     
     
 
-    <% @unique_users.each do |message| %>
+    <% @unique_users.each do |user| %>
      
   
 
       <div class="row">
-      <% if message.recipient_id? %>
+
         <div class="col-md-4">
           
-            <%= message.recipient.username %>
+            <%= user.username %>
 
         </div>
 
         <div class="col-md-8">
-          <%= link_to 'Chat!', messages_reply_path(:owner => message.recipient_id), class: "btn btn-primary"  %>
+          <%= link_to 'Chat!', messages_reply_path(:owner =>  user.id), class: "btn btn-primary"  %>
         </div>
-
-
-      <% else %>
-
-        <div class="col-md-4">
-          
-            <%= message.owner.username %>
-
-        </div>
-
-        <div class="col-md-8">
-          <%= link_to 'Chat!', messages_reply_path(:owner =>  message.owner_id), class: "btn btn-primary"  %>
-        </div>
-
-
-        <% end %>
 
     </div><!--row ends-->
     

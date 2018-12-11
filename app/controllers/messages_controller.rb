@@ -15,9 +15,32 @@ class MessagesController < ApplicationController
     @recieved_users = Message.where(recipient: current_user).select(:owner_id).distinct
     @sent_users =  Message.where(owner: current_user).select(:recipient_id).distinct
 
-    @unique_users = @recieved_users + @sent_users # combine users that have sent messages to you and users that have recieved messages from you
-    @unique_users = @unique_users - (@sent_users & @recieved_users) # remove all instances of duplicates if there are any
-    @unique_users = @unique_users + (@sent_users & @recieved_users) # readd one instance of each duplicate
+
+    #remove column relationships to id numbers
+    unique_id1 = []
+    unique_id2 = []
+    unique_ids = []
+
+    @recieved_users.each do |user|
+      unique_id1.push(user.owner_id) #remove attributes
+    end
+
+    @sent_users.each do |user|
+      unique_id2.push(user.recipient_id) #remove attributes
+    end
+
+
+    unique_ids = unique_id1 + unique_id2 # combine users that have sent messages to you and users that have recieved messages from you
+    unique_ids = unique_ids - (unique_id1 & unique_id2) # remove all instances of duplicates if there are any
+    unique_ids = unique_ids + (unique_id1 & unique_id2) # re-add one instance of each duplicate
+
+    unique_ids = unique_ids - [current_user.id] #remove yourself from the list if present
+
+    unique_ids.each do |id| #get the user you have messages with
+      @unique_users.push(User.find(id))
+    end
+
+
 
   end
 
