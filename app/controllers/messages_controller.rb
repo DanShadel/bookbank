@@ -9,9 +9,16 @@ class MessagesController < ApplicationController
   #Default to recieved mail
   def index
 
-    @messages = Message.where(recipient: current_user)
-    @sent = Message.where(owner: current_user)
-    @unique_users = Message.where(recipient: current_user).select(:owner_id).distinct
+    @recieved_users = []
+    @sent_users = []
+    @unique_users = []
+    @recieved_users = Message.where(recipient: current_user).select(:owner_id).distinct
+    @sent_users =  Message.where(owner: current_user).select(:recipient_id).distinct
+
+    @unique_users = @recieved_users + @sent_users # combine users that have sent messages to you and users that have recieved messages from you
+    @unique_users = @unique_users - (@sent_users & @recieved_users) # remove all instances of duplicates if there are any
+    @unique_users = @unique_users + (@sent_users & @recieved_users) # readd one instance of each duplicate
+
   end
 
   # GET /messages/1
@@ -23,15 +30,27 @@ class MessagesController < ApplicationController
   def reply
 
     #get messages in order
+    @sent = []
+    @recieved = []
     @sent = Message.where(recipient: params[:owner], owner: current_user)
     @recieved = Message.where(recipient: current_user, owner: params[:owner])
     @numsent = 0
     @numrecieved = 0
     @history = []
 
-    while @numsent < @sent.count and @numrecieved < @recieved.count
+    while @numsent < @sent.count or @numrecieved < @recieved.count
 
-      if @recieved[@numrecieved].created_at > @sent[@numsent].created_at
+      if @numrecieved == 0
+        @history = @sent
+        break
+
+      elsif @numsent == 0
+        @history = @recieved
+        break
+        
+
+
+      elsif @recieved[@numrecieved].created_at > @sent[@numsent].created_at
         @history.push(@sent[@numsent])
         @numsent = @numsent + 1
       else
