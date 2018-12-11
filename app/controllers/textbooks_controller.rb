@@ -38,7 +38,7 @@ class TextbooksController < ApplicationController
   # GET /textbooks/new
   def new
     @textbook = Textbook.new
-    @textbook.amazon = (Random.rand(75) + 25)
+    
   end
 
   # GET /textbooks/1/edit
@@ -53,6 +53,7 @@ class TextbooksController < ApplicationController
   def create
     @textbook = Textbook.new(textbook_params)
     @textbook.user = current_user
+    @textbook.amazon = (Random.rand(75) + 25)
     if @textbook.price >= 10000
         @textbook.price = 10000
     end
@@ -105,7 +106,7 @@ class TextbooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def textbook_params
-      params.require(:textbook).permit(:title, :condition, :edition, :section, :isbn, :email, :category, :price, :author, :description, :amount_used, :image, :rentable)
+      params.require(:textbook).permit(:title, :amazon, :condition, :edition, :section, :isbn, :email, :category, :price, :author, :description, :amount_used, :image, :rentable)
     end
 
     #Checks user ownership and displays an error if you don't
