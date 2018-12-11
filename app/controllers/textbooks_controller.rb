@@ -38,6 +38,7 @@ class TextbooksController < ApplicationController
   # GET /textbooks/new
   def new
     @textbook = Textbook.new
+    @textbook.amazon = (Random.rand(75) + 25)
   end
 
   # GET /textbooks/1/edit
