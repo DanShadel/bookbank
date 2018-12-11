@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181128224638) do
+ActiveRecord::Schema.define(version: 20181211215105) do
 
   create_table "messages", force: :cascade do |t|
     t.text "content"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20181128224638) do
     t.string "subject"
     t.string "isbn"
     t.boolean "rentable"
+    t.integer "amazon"
   end
 
 # Could not dump table "users" because of following StandardError
