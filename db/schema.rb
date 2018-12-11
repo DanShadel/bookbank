@@ -22,14 +22,6 @@ ActiveRecord::Schema.define(version: 20181128224638) do
     t.integer "parent_id"
   end
 
-  create_table "pricings", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "title"
-    t.string "author"
-    t.string "isbn"
-  end
-
   create_table "textbooks", force: :cascade do |t|
     t.string "title"
     t.string "condition"
