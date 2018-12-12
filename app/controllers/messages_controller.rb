@@ -15,7 +15,6 @@ class MessagesController < ApplicationController
     @recieved_users = Message.where(recipient: current_user).select(:owner_id).distinct
     @sent_users =  Message.where(owner: current_user).select(:recipient_id).distinct
 
-
     #remove column relationships to id numbers
     unique_id1 = []
     unique_id2 = []
@@ -63,23 +62,33 @@ class MessagesController < ApplicationController
 
     while @numsent < @sent.count or @numrecieved < @recieved.count
 
-      if @numrecieved == 0
-        @history = @sent
+
+      if @recieved.count == 0 and @sent.count == 0
+        @history = []
         break
 
-      elsif @numsent == 0
-        @history = @recieved
-        break
-        
 
-
-      elsif @recieved[@numrecieved].created_at > @sent[@numsent].created_at
+      elsif @recieved.count == 0 or @numrecieved == @recieved.count # no messages recieved or all in history
         @history.push(@sent[@numsent])
         @numsent = @numsent + 1
+
+
+      elsif @sent.count == 0 or @numsent == @sent.count # no messages sent or all sent messages in history
+        
+        @history.push(@recieved[@numrecieved])
+        @numrecieved = @numrecieved + 1
+        
+
+      elsif Message.find(@recieved[@numrecieved].id).created_at > Message.find(@sent[@numsent].id).created_at
+
+        @history.push(@sent[@numsent])
+        @numsent = @numsent + 1
+
       else
         @history.push(@recieved[@numrecieved])
         @numrecieved = @numrecieved + 1
       end
+
     end
 
 
