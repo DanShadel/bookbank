@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
   #make sure users are logged in when doing these actions
-  before_action :authenticate_user!, only: [:new, :destroy]
+  before_action :authenticate_user!, only: [:new, :reply, :destroy]
   before_action :set_message, only: [:edit, :update, :destroy]
 
   # GET /messages
